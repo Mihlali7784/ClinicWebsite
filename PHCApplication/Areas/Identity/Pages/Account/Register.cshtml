@@ -1,0 +1,213 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "";
+    Layout = "/Areas/Identity/Pages/_ClashLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <meta charset="utf-8">
+    <title>GRP</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/HomepageStyle/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/HomepageStyle/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/HomepageStyle/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/HomepageStyle/css/style.css" rel="stylesheet">
+</head>
+
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2 class="text-primary">Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-floating" hidden="hidden">
+              <input asp-for="Input.RegistrationDateTime" class="form-control" autocomplete="off" aria-required="true" placeholder="YYYY-MM-DD HH:mm" id="registrationDateTime" />
+               <label asp-for="Input.RegistrationDateTime">Registration Date</label>
+           <span asp-validation-for="Input.RegistrationDateTime" class="text-danger"></span>
+            </div>
+
+           @* <div class="form-floating">
+                <input asp-for="Input.RegistrationDateTime" class="form-control" autocomplete="off" aria-required="true" placeholder="YYYY-MM-DD HH:mm" />
+                <label asp-for="Input.RegistrationDateTime">Registration Date </label>
+                <span asp-validation-for="Input.RegistrationDateTime" class="text-danger"></span>
+            </div>*@
+
+
+
+             <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="FirstName" aria-required="true" placeholder="First Name" />
+                <label asp-for="Input.FirstName">First Name</label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.LastName" class="form-control" autocomplete="LastName" aria-required="true" placeholder="Last Name" />
+                <label asp-for="Input.LastName">Last Name</label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+             <hr />
+            <br />
+            <div class="form-floating">
+                <select asp-for="Input.Gender" class="form-select" aria-required="true" id="dropdown-ability">
+                    <option value="">--Select Gender--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label asp-for="Input.Gender">Gender</label>
+                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                <label asp-for="Input.DateOfBirth">Date Of Birth</label>
+                <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.Address" class="form-control" autocomplete="Address" aria-required="true" placeholder="Address" />
+                <label asp-for="Input.Address">Address</label>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.StreetAddress" class="form-control" autocomplete="StreetAddress" aria-required="true" placeholder="Street Address" />
+                <label asp-for="Input.StreetAddress">Street Address</label>
+                <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="City" />
+                <label asp-for="Input.City">City</label>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.PostalAddress" class="form-control" autocomplete="PostalAddress" aria-required="true" placeholder="Postal Address" />
+                <label asp-for="Input.PostalAddress">Postal Address</label>
+                <span asp-validation-for="Input.PostalAddress" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <select asp-for="Input.MaritalStatus" class="form-select" aria-required="true" id="dropdown-ability">
+                    <option value="">--Select Marital Status--</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label asp-for="Input.MaritalStatus">Marital Status</label>
+                <span asp-validation-for="Input.MaritalStatus" class="text-danger"></span>
+            </div>
+             <hr />
+            <br />
+
+            <div class="form-floating">
+                <input asp-for="Input.ContactNumber" class="form-control" autocomplete="ContactNumber" aria-required="true" placeholder="Contact Number" />
+                <label asp-for="Input.ContactNumber">Contact Number</label>
+                <span asp-validation-for="Input.ContactNumber" class="text-danger"></span>
+            </div>
+
+            <!-- HTML -->
+            <div class="form-floating">
+                <input asp-for="Input.Role" class="form-control" type="text" id="textbox-role" hidden value="Patient" />
+                <label asp-for="Input.Role" hidden>Role</label>
+                <span asp-validation-for="Input.Role" class="text-danger" hidden></span>
+            </div>
+
+            <hr />
+            <br />
+
+            <!--end here we hide the role to only recode patient-->
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="off" aria-required="true" placeholder="Password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+             <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="off" aria-required="true" placeholder="Confirm Password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <style>
+                select#dropdown-ability:hover {
+                    cursor: pointer;
+                }
+            </style>
+            <hr />
+            <br />
+            <div class="form-group row">
+                
+                    <div class="col-70">
+                        <button id="registerSubmit" type="submit" class="w-100  btn btn-lg btn-primary">Register</button>
+                    </div>
+              
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+    <script>
+        // Get the input element for registration date and time
+        const registrationDateTimeInput = document.getElementById('registrationDateTime');
+
+        // Function to format the date and time in 'YYYY-MM-DD HH:mm' format
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day} ${hours}:${minutes}`;
+        }
+
+        // Update the input field with the current date and time
+        registrationDateTimeInput.value = formatDate(new Date());
+    </script>

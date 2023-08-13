@@ -1,0 +1,53 @@
+﻿
+
+<head>
+    <meta charset="utf-8">
+    <title>ClashCode</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/HomepageStyle/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/HomepageStyle/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/HomepageStyle/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/HomepageStyle/css/style.css" rel="stylesheet">
+</head>
+
+
+<div>
+    <h1>eNompilo Primary Health Care</h1>
+</div>
+@{
+    // Assuming you have the formatted HTML code stored in a variable called 'formattedText'
+    string formattedText = "\n\nWe are a leading healthcare institution dedicated to providing exceptional medical care and improving the well-being of our patients.\n\nOur hospital is staffed with a team of highly skilled healthcare professionals, including doctors, nurses, specialists, and support staff, who are committed to delivering services.\n\nAt our hospital, we prioritize patient-centered care and strive to create a comfortable and nurturing environment for all individuals who walk through our doors.\n\nWe understand that seeking medical attention can be a daunting experience, which is why we focus on treating each patient with compassion, respect, and empathy.\n\nFrom routine check-ups and preventive care to complex surgical procedures and specialized treatments, we have the expertise and resources to address a wide spectrum of healthcare needs.\n\nOur doctors and specialists are highly qualified, experienced, and committed to staying up-to-date with the latest advancements in medical research and technology.\n\nPatient safety is of utmost importance to us.\n\nIn addition to our clinical services, we also prioritize patient education and preventive care.\n\nWe believe in empowering our patients with the knowledge and resources they need to make informed decisions about their health.\n\nOur hospital conducts health awareness programs, provides educational materials, and offers lifestyle counseling to promote wellness and disease prevention.\n\nThrough partnerships with local organizations and community involvement, we strive to improve access to healthcare and contribute to the overall well-being of the population.\n\nAt our hospital, we are dedicated to providing excellence in healthcare, fostering a compassionate and supportive environment, and making a positive impact on the lives of our patients and their families.\n\nWe continuously strive to raise the bar of healthcare standards and remain at the forefront of medical advancements, ensuring that our patients receive the best possible care.\n\nThank you for choosing our hospital.\n\nWe are honored to be a part of your healthcare journey and look forward to serving you with dedication and compassion.\n\n";
+
+    // Split the formatted text into lines
+    string[] lines = formattedText.Split("\n");
+
+    // Render the formatted HTML
+
+         foreach (var line in lines)
+         {
+             if (!string.IsNullOrWhiteSpace(line))
+             {
+                <li>@line.Trim()</li>
+             }
+            
+         }
+}

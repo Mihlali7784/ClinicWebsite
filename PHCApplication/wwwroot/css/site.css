@@ -1,0 +1,56 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 100px;
+    background-color: aliceblue;
+    font-family: "Roboto", sans-serif;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+.team-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the team members */
+}
+
+.team-member {
+  flex: 0 0 calc(20% - 20px); /* Each team member takes 20% of the container width with a 20px gap between them */
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center; /* Center the content within each team member block */
+}
+
+.team-member img {
+  max-width: 100%;
+  border-radius: 50%; /* Make the images rounded (circle) */
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 1rem;
+}

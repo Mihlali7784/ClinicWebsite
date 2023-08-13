@@ -1,0 +1,54 @@
+﻿@page
+@model DownloadPersonalDataModel
+@{
+    ViewData["Title"] = "Download Your Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<head>
+	<meta charset="utf-8">
+	<title>Mind Meld</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="~/sidemanu/assets/img/sidebar/mm_logo.ico">
+
+	<link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+	<!-- DataTables CSS file -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<!-- DataTables JavaScript file -->
+	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap4.min.css" />
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>
+
+</head>
+
+<h3>@ViewData["Title"]</h3>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
