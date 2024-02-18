@@ -8,14 +8,23 @@ namespace PHCApplication.Models
         [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Please Select Referral Type")]
-        [Display(Name = "Referral Type")]
-        public string ReferralType { get; set; }
+        [Required(ErrorMessage = "Referral date is required.")]
+        [Display(Name = "Referral Date")]
+        [DataType(DataType.Date)]
+        public DateTime ReferralDate { get; set; }
 
-        [Required(ErrorMessage = "Reason is required.")]
+       
+
+        [Required(ErrorMessage = "Referred doctor/clinic is required.")]
+        [Display(Name = "Referred Doctor/Clinic")]
+        public string ReferredDoctorOrClinic { get; set; }
+
+        [StringLength(500, ErrorMessage = "Reason for referral should not exceed 500 characters.")]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The Reason field can only contain letters.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Reason must be between 2 and 50 characters")]
-        public string Reason { get; set; }
+        [Display(Name = "Reason for Referral")]
+        public string ReasonForReferral { get; set; }
+
+        
     }
             
 }

@@ -1,0 +1,83 @@
+﻿@{
+	ViewData["Title"] = "PatientDashboardPrenatalCare";
+	Layout = "~/Views/Shared/_PatientPrenatalCareLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>View Prescriptions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="~/sidemanu/assets/img/sidebar/mm_logo.ico">
+
+	<link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+	<link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+	<script src="~/js/site.js"></script>
+
+	<style>
+		/* This is the CSS style for changing the color of the paragraph text to red */
+		p {
+			color: red;
+		}
+	</style>
+	<link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+	<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		body {
+			background-color: grey; /* Change this color to the desired background color */
+			margin: 0; /* Reset margin to remove default spacing */
+			padding: 0; /* Reset padding to remove default spacing */
+		}
+	</style>
+	<meta charset="utf-8">
+	<h1>Your Prescriptions</h1>
+	<p>Please note that you are not authorized to make changes to this table.</p>
+	<table class="table table-hover table-lime">
+		<thead>
+			<tr>
+				<th scope="col">Patient Identity Number</th>
+				<th scope="col">Patient Fullname</th>
+				<th scope="col">Doctor Name</th>
+				<th scope="col">Prescribed Medication</th>
+				<th scope="col">Collection date</th>
+				<th scope="col">Previous collection</th>
+				<th scope="col">Collection Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="col">7602030555088</th>
+				<th scope="col">Mrs Hannah Baker</th>
+				<th scope="col">Dr KD Mokgale</th>
+				<th scope="col">Folic Acids</th>
+				<th scope="col">04/09/2023</th>
+				<th scope="col">N/A</th>
+				<th scope="col">Walmer Pharmacy, Gqeberha</th>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>

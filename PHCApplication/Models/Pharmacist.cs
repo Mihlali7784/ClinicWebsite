@@ -25,6 +25,8 @@ namespace PHCApplication.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+
+
         [Required(ErrorMessage = "Contact number is required.")]
         [StringLength(20, ErrorMessage = "Contact number should be between {2} and {1} characters.", MinimumLength = 5)]
         [RegularExpression(@"^[0-9+]+$", ErrorMessage = "Invalid contact number.")]
@@ -51,14 +53,20 @@ namespace PHCApplication.Models
         [Display(Name = "Marital Status")]
         public MaritalStatus MaritalStatus { get; set; }
 
-        [Required(ErrorMessage = "Please Select Doctor Type")]
-        [Display(Name = "Pharmacist Type")]
-        public string PharmacistType { get; set; }
+        [Required(ErrorMessage = "License number is required.")]
+        [StringLength(20, ErrorMessage = "License number should not exceed 20 characters.")]
+        [Display(Name = "License Number")]
+        public string LicenseNumber { get; set; }
+
 
         [Required(ErrorMessage = "Qualification Required")]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
         public string Qualification { get; set; }
+
+        [Range(1, 50, ErrorMessage = "Years of experience must be between 1 and 50.")]
+        [Display(Name = "Years of Experience")]
+        public int YearsOfExperience { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -66,6 +74,11 @@ namespace PHCApplication.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Compare("Password", ErrorMessage = "Passwords do not match.")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
+
+       
 
     }
 }

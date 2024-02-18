@@ -1,0 +1,84 @@
+﻿@model IEnumerable<PHCApplication.Models.Examination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocLayout.cshtml";
+}
+
+<h1>Examination</h1>
+
+<p>
+    <a asp-controller="" asp-action="Create">Examination</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientIdNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Symptoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientIdNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodType)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

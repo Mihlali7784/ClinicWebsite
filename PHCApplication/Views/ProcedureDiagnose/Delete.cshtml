@@ -1,0 +1,64 @@
+﻿@model PHCApplication.Models.Diagnose
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Delete</h1>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Diagnose</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DiagnoseDateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DiagnoseDateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treatment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treatment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicalFacility)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MedicalFacility)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FollowUpAppointment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FollowUpAppointment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicationDetails)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MedicationDetails)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DiagnoseId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back</a>
+    </form>
+</div>
+

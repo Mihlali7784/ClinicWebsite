@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "pharmacistDashboardChronicMedication";
+    Layout = "~/Views/Shared/_PharmacistChronicMedLayout.cshtml";
+}
+
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Pharmacist - Bootstrap Pharmacist Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<!--This is a header of our page you can copy and past it in any new view u create, Lets Goo!-->
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="page-title mb-0">Dashboard for pharmacist</h3>
+            </div>
+            <div class="col-md-6">
+                <ul class="breadcrumb mb-0 p-0 float-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item"><span>Pharmacist Dashboard</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<body class="bg-gray-100">
+
+
+
+    <!-- strat wrapper -->
+    <div class="h-screen flex flex-row flex-wrap">
+
+
+        <!-- strat content -->
+        <div class="bg-gray-100 flex-1 p-6 md:mt-16">
+
+
+            <!-- General Report -->
+            <div class="grid grid-cols-4 gap-6 xl:grid-cols-1">
+
+
+                <!-- card -->
+                <div class="report-card">
+                    <div class="card" style="background-color: grey;">
+                        <div class="card-body flex flex-col">
+
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-indigo-700">
+                                    <i class="fas fa-calendar fa-fw fa-4x"></i>
+                                </div>
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Booking</h6>
+                            </div>
+                            <!-- end bottom -->
+
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="report-card">
+                    <div class="card" style="background-color: grey;">
+                        <div class="card-body flex flex-col">
+
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-red-700">
+                                    <i class="fad fa-book-medical fa-fw fa-4x"></i>
+                                </div>
+
+                                <span class="rounded-full text-white badge bg-red-400 text-xs">
+
+                                    <i class="fal fa-chevron-down ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Prescription</h6>
+                            </div>
+                            <!-- end bottom -->
+
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="report-card">
+                    <div class="card" style="background-color: grey;">
+                        <div class="card-body flex flex-col">
+
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-yellow-600">
+                                    <i class="fad fa-sitemap fa-fw fa-4x"></i>
+                                </div>
+
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Report</h6>
+                            </div>
+                            <!-- end bottom -->
+
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </div>
+
+
+            </div>
+            <!-- End General Report -->
+            <!-- strat Analytics -->
+            <div class="mt-6 grid grid-cols-2 gap-6 xl:grid-cols-1">
+
+                <!-- update section -->
+                <div class="card bg-green-400 border-green-400 shadow-md text-white">
+                    <div class="card-body flex flex-row">
+
+                        <!-- image -->
+                        <div class="img-wrapper w-40 h-40 flex justify-center items-center">
+                            <img src="~/Dash/img/happy.svg" alt="img title">
+                        </div>
+                        <!-- end image -->
+                        <!-- info -->
+                        <div class="py-2 ml-20">
+                            <h1 class="h6">Hope you're having a great day!</h1>
+                            <p class="text-white text-xs">Make sure you do all that's listed below'.</p>
+
+                            <ul class="mt-4">
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Check collection dates</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Check the stock in the storage room</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i> Dispense medication </li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Review patient records</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Attend team meeting</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i> Update inventory</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Prepare medical reports</li>
+                            </ul>
+
+                            <p class="mt-4">Remember to stay positive and take breaks when needed! Keep up the good work.</p>
+                        </div>
+                        <!-- end info -->
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- end nmbers -->
+
+            </div>
+            <!-- end content -->
+
+        </div>
+        <!-- end wrapper -->
+        <!-- script -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+        <script src="~/Dash/js/scripts.js"></script>
+        <!-- end script -->
+
+</body>
+</html>
+

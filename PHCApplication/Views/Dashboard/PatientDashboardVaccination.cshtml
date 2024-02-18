@@ -1,0 +1,375 @@
+﻿@{
+    ViewData["Title"] = "PatientDashboardVaccination";
+    Layout = "~/Views/Shared/_PatientVaccinationLayout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Patient - Bootstrap Patient Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<!--This is a header of our page you can copy and past it in any new view u create, Lets Goo!-->
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="page-title mb-0">Dashboard</h3>
+            </div>
+            <div class="col-md-6">
+                <ul class="breadcrumb mb-0 p-0 float-right">
+                    <li class="breadcrumb-item"><a href="/Home/PatientMedicalLandingPage"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item"><span>Patient Dashboard</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<body class="bg-gray-100">
+
+
+
+    <!-- strat wrapper -->
+    <div class="h-screen flex flex-row flex-wrap">
+
+
+        <!-- strat content -->
+        <div class="bg-gray-100 flex-1 p-6 md:mt-16">
+
+
+            <!-- General Report -->
+            <div class="grid grid-cols-4 gap-6 xl:grid-cols-1">
+
+
+                <!-- card -->
+
+                <a href="/RegisterVaccination/Create" class="report-card">
+                    <div class="card">
+                        <div class="card-body flex flex-col">
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-indigo-700">
+                                    <i class="fas fa-calendar fa-fw fa-4x"></i>
+                                </div>
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Register</h6>
+                            </div>
+                            <!-- end bottom -->
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </a>
+
+                <!-- end card -->
+                <!-- card -->
+                <a href="/VaccPatientRegister/Index" class="report-card">
+                    <div class="card">
+                        <div class="card-body flex flex-col">
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-red-700">
+                                    <i class="fad fa-book-medical fa-fw fa-4x"></i>
+                                </div>
+
+                                <span class="rounded-full text-white badge bg-red-400 text-xs">
+                                    <i class="fal fa-chevron-down ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">More About Vaccines</h6>
+                            </div>
+                            <!-- end bottom -->
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </a>
+
+                <!-- end card -->
+                <!-- card -->
+                <a href="/ReportEvent/Create" class="report-card">
+                    <div class="card">
+                        <div class="card-body flex flex-col">
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-yellow-600">
+                                    <i class="fad fa-sitemap fa-fw fa-4x"></i>
+                                </div>
+
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Reporting Adverse Events</h6>
+                            </div>
+                            <!-- end bottom -->
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </a>
+
+                <!-- end card -->
+                <!-- card -->
+                <a href="/ReportEvent/RatingReview" class="report-card">
+                    <div class="card">
+                        <div class="card-body flex flex-col">
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <!-- You can choose either of the icons below based on your preference -->
+                                <div class="h6 text-green-700">
+                                    <i class="fad fa-comments fa-fw fa-4x"></i>
+                                </div>
+                                <!-- or -->
+                                <!-- <div class="h6 text-green-700">
+                                    <i class="fad fa-users fa-fw fa-4x"></i>
+                                </div> -->
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Comments and Ratings</h6>
+                            </div>
+                            <!-- end bottom -->
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </a>
+
+                <!-- end card -->
+
+
+            </div>
+            <!-- End General Report -->
+            <!-- strat Analytics -->
+            <div class="mt-6 grid grid-cols-2 gap-6 xl:grid-cols-1">
+
+                <!-- update section -->
+                <div class="card bg-teal-400 border-teal-400 shadow-md text-white">
+                    <div class="card-body flex flex-row">
+
+                        <!-- image -->
+                        <div class="img-wrapper w-40 h-40 flex justify-center items-center">
+                            <img src="~/Dash/img/happy.svg" alt="img title">
+                        </div>
+                        <!-- end image -->
+                        <!-- info -->
+                        <div class="py-2 ml-10">
+                            <h1 class="h6">Hello there!</h1>
+                            <p class="text-white text-xs">Welcome Back!! to eNompilo Primary Health Care Vaccination Website.</p>
+
+                            <ul class="mt-4">
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Safe and Secure Vaccinations</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i>Vaccination introduces safe microorganis</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i> Offored by the best Doctors</li>
+                            </ul>
+                        </div>
+                        <!-- end info -->
+
+                    </div>
+                </div>
+                <!-- end update section -->
+                <!-- carts -->
+                <div class="flex flex-col">
+
+                    <!-- alert -->
+                    <div class="alert alert-dark mb-6">
+                        Hi! Wait A Minute . . . . . . Follow Us on Instagram
+                        <a class="ml-2" target="_blank" href=" https://www.instagram.com/ndaba_10/?fbclid=IwAR0Dmnncr5L5-coz1OKQF2BK6uCfBcD-Rp6Lw0VD4rXgYBW6MJhF59rmVDI"></a>
+                    </div>
+                    <!-- end alert -->
+                    <!-- charts -->
+                    <div class="grid grid-cols-2 gap-6 h-full">
+
+                        <div class="card">
+                            <div class="py-3 px-4 flex flex-row justify-between">
+                                <h1 class="h6">
+                                    <span class="num-4"></span>k
+                                    <p>About Us</p>
+                                </h1>
+
+                                <div class="bg-teal-200 text-teal-700 border-teal-300 border w-10 h-10 rounded-full flex justify-center items-center">
+                                    <i class="fad fa-eye"></i>
+                                </div>
+                            </div>
+                            <div class="analytics_1"></div>
+                        </div>
+
+                        <div class="card">
+                            <div class="py-3 px-4 flex flex-row justify-between">
+                                <h1 class="h6">
+                                    <span class="num-2"></span>k
+                                    <p>Privacy Policy</p>
+                                </h1>
+
+                                <div class="bg-indigo-200 text-indigo-700 border-indigo-300 border w-10 h-10 rounded-full flex justify-center items-center">
+                                    <i class="fad fa-users-crown"></i>
+                                </div>
+                            </div>
+                            <div class="analytics_1"></div>
+                        </div>
+
+                    </div>
+                    <!-- charts    -->
+
+                </div>
+                <!-- end charts -->
+
+
+            </div>
+            <!-- end Analytics -->
+            <!-- start numbers -->
+            <div class="grid grid-cols-5 gap-6 xl:grid-cols-2">
+
+                <!-- card -->
+                <div class="card mt-6">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-indigo-600 text-white mr-3">
+                            <i class="fad fa-wallet"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> Documents and certificates</h1>
+                            <p class="text-xs"><span class="num-2"></span>File </p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-green-600 text-white mr-3">
+                            <i class="fad fa-shopping-cart"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> Available services</h1>
+                            <p class="text-xs"><span class="num-2"></span> Available</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
+                            <i class="fad fa-blog"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> Public Awareness</h1>
+                            <p class="text-xs"><span class="num-2"></span> active</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-red-600 text-white mr-3">
+                            <i class="fad fa-comments"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> comments</h1>
+                            <p class="text-xs"><span class="num-2"></span> approved</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1 xl:col-span-2">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-pink-600 text-white mr-3">
+                            <i class="fad fa-user"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span>Be our member</h1>
+                            <p class="text-xs"><span class="num-2"></span> online</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end nmbers -->
+
+        </div>
+        <!-- end content -->
+
+    </div>
+    <!-- end wrapper -->
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="~/Dash/js/scripts.js"></script>
+    <!-- end script -->
+
+</body>
+</html>
+

@@ -107,6 +107,25 @@ namespace PHCApplication.Controllers
         {
             return View();
         }
+        //medical procedure admin landing page
+        public IActionResult AdminMedicalLandingPage()
+        {
+            return View();
+        }
+        //medical procedure admin landing page
+        public IActionResult DocSpecialisedLandingPage()
+        {
+            return View();
+        }
+        //medical procedure patient landing page
+        public IActionResult PatientMedicalLandingPage()
+        {
+            return View();
+        }
+        public IActionResult PharmacistMedicalLandingPage()
+        {
+            return View();
+        }
 
 
     }

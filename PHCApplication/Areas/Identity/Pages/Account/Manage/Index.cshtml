@@ -49,7 +49,7 @@
 
 </head>
 
-
+@*
 <h4>@ViewData["Title"]</h4>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <partial name="_StatusMessage" model="Model.UserNameChangeLimitMessage" />
@@ -148,4 +148,120 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+}
+*@
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <partial name="_StatusMessage" model="Model.StatusMessage" />
+    <partial name="_StatusMessage" model="Model.UserNameChangeLimitMessage" />
+
+    <form id="profile-form" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input asp-for="Input.FirstName" class="form-control" id="firstName" />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.LastName" class="form-control" />
+                    <label asp-for="Input.LastName" class="form-label"></label>
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.Gender" class="form-control" />
+                    <label asp-for="Input.Gender" class="form-label"></label>
+                    <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                    <label asp-for="Input.DateOfBirth">Date Of Birth</label>
+                    <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.Address" class="form-control" autocomplete="Address" aria-required="true" placeholder="Address" />
+                    <label asp-for="Input.Address">Address</label>
+                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.StreetAddress" class="form-control" autocomplete="StreetAddress" aria-required="true" placeholder="Street Address" />
+                    <label asp-for="Input.StreetAddress">Street Address</label>
+                    <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="City" />
+                    <label asp-for="Input.City">City</label>
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.PostalAddress" class="form-control" autocomplete="PostalAddress" aria-required="true" placeholder="Postal Address" />
+                    <label asp-for="Input.PostalAddress">Postal Address</label>
+                    <span asp-validation-for="Input.PostalAddress" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <select asp-for="Input.MaritalStatus" class="form-select" aria-required="true" id="dropdown-ability">
+                        <option value="">--Select Marital Status--</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label asp-for="Input.MaritalStatus">Marital Status</label>
+                    <span asp-validation-for="Input.MaritalStatus" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Username" class="form-control" disabled />
+                    <label asp-for="Username" class="form-label"></label>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.ContactNumber" class="form-control" autocomplete="ContactNumber" aria-required="true" placeholder="Contact Number" />
+                    <label asp-for="Input.ContactNumber">Contact Number</label>
+                    <span asp-validation-for="Input.ContactNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Repeat similar structure for LastName, Gender, DateOfBirth, Address, StreetAddress, City, PostalAddress, MaritalStatus, ContactNumber, PhoneNumber -->
+
+                <div class="form-group">
+                    <label for="profilePicture">Profile Picture</label>
+                    <div class="profile-picture">
+                        @if (Model.Input.ProfilePicture != null)
+                        {
+                            <img id="ProfilePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.ProfilePicture))" alt="Profile Picture">
+                        }
+                        else
+                        {
+                            <img id="ProfilePicture" style="width:350px;height:350px; object-fit:cover" src="" alt="No Profile Picture">
+                        }
+                    </div>
+                    <input type="file" accept=".png, .jpg, .jpeg, .gif, .tif" asp-for="Input.ProfilePicture" class="form-control" id="profilePicture" onchange="updateProfilePicturePreview(this)" />
+                    <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
+                </div>
+
+                <button id="update-profile-button" type="submit" class="btn btn-primary btn-block">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function updateProfilePicturePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#ProfilePicture').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 }

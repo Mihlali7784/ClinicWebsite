@@ -1,0 +1,89 @@
+﻿
+@model IEnumerable<PHCApplication.Models.Walk_in>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<style>
+    /* Your CSS styles go here */
+</style>
+
+<form>
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h3 class="text-primary">Walk In</h3>
+            </div>
+            <div>
+                <button asp-controller="Walkins" asp-action="Create" class="btn btn-primary mb-3">Walk In</button>
+            </div>
+        </div>
+        <br />
+        <table class="table table-responsive table-hover table-bordered">
+            <thead>
+                <tr class="table-active">
+                    <th class="text-center">Id</th>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Date Created</th>
+                    <th class="text-center col-2">Specialisation</th>
+                    <th class="text-center col-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var walkIn in Model)
+                    {
+                        @if (@walkIn.Specialisation == "Chronic Medication")
+                        {
+                            <tr>
+                                <td>@walkIn.Id</td>
+                                <td>@walkIn.FirstName</td>
+                                <td>@walkIn.LastName</td>
+                                <td class="text-center">@walkIn.DateTime</td>
+                                <td>@walkIn.Specialisation</td>
+                                <td>@walkIn.Description</td>
+                            </tr>
+                        }
+                     
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7">
+                            <div>
+                                No record of walk in
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

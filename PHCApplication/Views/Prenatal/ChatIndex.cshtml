@@ -1,0 +1,78 @@
+﻿@model List<ChatMessage> // Specify the model type as List<ChatMessage>
+
+@{
+    ViewData["Title"] = "PatientDashboardPrenatalCare";
+    Layout = "~/Views/Shared/_PatientPrenatalCareLayout.cshtml";
+}
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Patient - Bootstrap Patient Template</title>
+
+
+        <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+        <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+        <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+        <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+        <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+        <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+        <style>
+            .custom-heading {
+                font-size: 24px;
+                color: black;
+                font-weight: bold;
+                text-transform: uppercase;
+                /* Add more styles as needed */
+            }
+        </style>
+
+        <!--[if lt IE 9]>
+                <script src="assets/js/html5shiv.min.js"></script>
+                <script src="assets/js/respond.min.js"></script>
+            <![endif]-->
+    </head>
+
+
+
+
+
+    <div id="chat-container width: 200px">
+        <ul id="chat-messages">
+        @if (Model != null)
+        {
+            @foreach (var message in Model)
+            {
+                    <li>@message.UserName: @message.Message</li>
+            }
+        }
+        </ul>
+    </div>
+
+@using (Html.BeginForm("SendMessage", "Chat"))
+{
+        <div>
+        @Html.LabelFor(model => model[0].Message, "Message:") <!-- Use an index to access the first item's Message property -->
+        @Html.TextBoxFor(model => model[0].Message, new { placeholder = "Type your message..." }) <!-- Use an index to access the first item's Message property -->
+        </div>
+
+        <button type="submit">Send</button>
+}
+
+

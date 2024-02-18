@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewData["Title"] = "Index1";
+    Layout = "~/Views/Shared/_pharmacistVaccinationLayout.cshtml";
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Patient - Bootstrap Patient Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+    </style>
+
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+
+@*@model IEnumerable<PHCApplication.Models.Appoint>*@
+
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+<style>
+
+    .container {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        margin: 5px;
+    }
+
+    body {
+        background-color: lightcyan; /* Change this color to the desired background color */
+        margin: 0; /* Reset margin to remove default spacing */
+        padding: 0; /* Reset padding to remove default spacing */
+    }
+</style>
+<form>
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h1 class="text-primary">Congratulations You Have Succeseefully Sent A Request Of Vaccination to Our Pharmacist </h1>
+
+            </div>
+
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Dashboard" asp-action="DoctorAssistantDashboardVaccination" class="btn btn-info">
+                Back to Home
+
+            </a>
+
+        </div>
+        <br />
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

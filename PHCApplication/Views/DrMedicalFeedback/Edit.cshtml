@@ -1,0 +1,57 @@
+﻿@model PHCApplication.Models.ChatFeedback
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+<h1>Edit feedback</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Feedback" class="control-label"></label>
+                <textarea asp-for="Feedback" class="form-control"></textarea>
+                <span asp-validation-for="Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommunicationRating" class="control-label"></label>
+                <input asp-for="CommunicationRating" class="form-control" type="number" min="1" />
+                <span asp-validation-for="CommunicationRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResponseTimeInMinutes" class="control-label"></label>
+                <input asp-for="ResponseTimeInMinutes" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="ResponseTimeInMinutes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back </a>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

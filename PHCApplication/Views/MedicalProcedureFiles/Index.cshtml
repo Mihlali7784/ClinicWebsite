@@ -1,0 +1,155 @@
+﻿@model IEnumerable<PHCApplication.Models.MedicalProcedureFile>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Create Appointment</h1>
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+<p>
+    <a asp-controller="MedicalProcedureFiles" asp-action="Create">Create New Medical Record</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalProcedure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Symptoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentMedications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allergies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SmokingHabit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlcoholConsumption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalProcedure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentMedications)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Allergies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Treatment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SmokingHabit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlcoholConsumption)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email) 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MedicalProcedureFileId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MedicalProcedureFileId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MedicalProcedureFileId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

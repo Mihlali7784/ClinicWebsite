@@ -1,0 +1,91 @@
+﻿@model PHCApplication.Models.PrenatalAppointment
+
+<form method="post" asp-action="RequestAppointment" style="scrollbar-darkshadow-color">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Book An Appointment</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="form-group ">
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Surname">Surname</label>
+                            <input asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="DateOfBirth">Date Of Birth</label>
+                            <input asp-for="DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Email">Email Address</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="ContactNumber">Contact Number</label>
+                            <input asp-for="ContactNumber" class="form-control" />
+                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="StreetAddress">Street Address</label>
+                            <input asp-for="StreetAddress" class="form-control" />
+                            <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="City">City</label>
+                            <input asp-for="City" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="PostalAddress">Postal Address</label>
+                            <input asp-for="PostalAddress" class="form-control" />
+                            <span asp-validation-for="PostalAddress" class="text-danger"></span>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="preVisitType">Appointment Type</label>
+                            <select asp-for="preVisitType" class="form-select" aria-required="true" id="dropdown-ability">
+                                <option value="">Select Appointment Type--</option>
+                                <option value="first-time">First-Time</option>
+                                <option value="checkup">Checkup</option>
+                                <option value="referred">Referred</option>
+                                
+                            </select>
+                            <span asp-validation-for="preVisitType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="form-group row">
+            <div class="col-8 offset-2 row">
+                <div class="col">
+                    <input type="submit" class="btn btn-info w-75" value="Update" />
+                </div>
+                <div class="col">
+                    <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+</form>

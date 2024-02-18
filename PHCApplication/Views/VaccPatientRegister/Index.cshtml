@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PatientVaccinationLayout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Patient - Bootstrap Patient Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+
+        .picture-textbox {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+            .picture-textbox select {
+                appearance: none;
+                background: none;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                margin-left: 5px;
+            }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .custom-btn {
+            font-size: 18px;
+            padding: 12px 30px;
+            width: 45%; /* Adjust the width to control the space between buttons */
+        }
+
+    </style>
+
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+
+@*@model PHCApplication.Models.Registering*@
+@{
+    var errorMessage = TempData["ErrorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+<h2 class="mb-4 display-1">More About vaccine.</h2>
+<br />
+<h1 class="display-4">Covid-19 Vaccine</h1>
+<p>
+    Vaccine Types and Efficacy: Understand the different types of COVID-19 vaccines available, such as mRNA vaccines and viral vector vaccines. Learn about their efficacy in preventing infection, reducing severe illness, and lowering the risk of transmission. Vaccines have undergone rigorous testing and regulatory approval processes to ensure safety and effectiveness.
+
+    Vaccination Process: Familiarize yourself with the vaccination process in your area, including how to schedule appointments, the number of doses required, and the recommended interval between doses. Follow the guidelines provided by your local health authorities for a smooth vaccination experience.
+
+
+</p>
+<h1 class="display-4">FLU Vaccine</h1>
+
+<p>
+    Importance of the Flu Vaccine: Understand the importance of getting the flu vaccine annually. Influenza (the flu) is a contagious respiratory illness that can lead to severe complications, especially in vulnerable populations like the elderly, young children, pregnant women, and those with certain medical conditions. The flu vaccine helps protect against various strains of the flu virus.
+
+    Seasonal Changes and Strain Selection: Recognize that the flu virus can change and evolve over time, leading to different strains each flu season. Scientists closely monitor these changes and select the most likely strains to circulate during the upcoming flu season for inclusion in the vaccine. This is why a new flu vaccine is needed each year.
+
+
+</p>
+<h1 class="display-4">Malaria Vaccine</h1>
+<p>
+    Malaria Vaccine Development: The development of a malaria vaccine has been a significant scientific challenge due to the complexity of the malaria parasite and its lifecycle. However, after many years of research, the world's first malaria vaccine, known as RTS,S or Mosquirix, has been developed and is undergoing implementation in certain regions.
+
+    Vaccine Target and Efficacy: The RTS,S malaria vaccine targets the Plasmodium falciparum parasite, the most deadly species of malaria parasite. The vaccine is designed to stimulate the immune system to produce antibodies against the parasite's surface protein. While the vaccine's efficacy is not as high as some other vaccines, it has shown promise in reducing severe cases of malaria in young children.
+
+
+</p>
+<h1 class="display-4">ChickenPox Vaccine</h1>
+<p>
+    Vaccine Purpose and Protection: The chickenpox vaccine, also known as the varicella vaccine, is designed to provide immunity against the varicella-zoster virus, which causes chickenpox. It helps prevent the disease and its associated complications, such as severe skin infections, pneumonia, and encephalitis.
+
+    Vaccine Composition and Schedule: The chickenpox vaccine contains a weakened form of the varicella-zoster virus, which triggers the immune system to produce protective antibodies without causing the full illness. The vaccine is typically administered in two doses. The first dose is given in childhood between 12 and 15 months of age, and the second dose is usually administered between 4 and 6 years of age.
+
+
+</p>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script>
+    // Get the input element for registration date and time
+    const registrationDateTimeInput = document.getElementById('registrationDateTime');
+
+    // Function to format the date and time in 'YYYY-MM-DD HH:mm' format
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
+    }
+
+    // Update the input field with the current date and time
+    registrationDateTimeInput.value = formatDate(new Date());
+</script>
+

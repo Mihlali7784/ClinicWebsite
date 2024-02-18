@@ -1,0 +1,116 @@
+﻿@model IEnumerable<PHCApplication.Models.Bookings>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PatientMedicalProcedureLayout.cshtml";
+}
+
+<h1>Create Booking</h1>
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+
+<p>
+    <a asp-controller="ProcedureBookings" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationInMinutes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermsAndConditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DurationInMinutes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalDetails)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TermsAndConditions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookingsId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookingsId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookingsId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

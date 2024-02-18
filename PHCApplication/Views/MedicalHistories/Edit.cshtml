@@ -1,0 +1,54 @@
+﻿@model PHCApplication.Models.MedicalHistory
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DocMentalHealthLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MedicalHistory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HistoryMentalHealthTreatment" class="control-label"></label>
+                <input asp-for="HistoryMentalHealthTreatment" class="form-control" />
+                <span asp-validation-for="HistoryMentalHealthTreatment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentMentalHealthTreatment" class="control-label"></label>
+                <input asp-for="CurrentMentalHealthTreatment" class="form-control" />
+                <span asp-validation-for="CurrentMentalHealthTreatment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Substance" class="control-label"></label>
+                <select asp-for="Substance" class="form-control">
+                    <option value="Alcohol or Drugs">Alcohol or Drugs</option>
+                    <option value="Others">Others</option>
+                </select>
+                <span asp-validation-for="Substance" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

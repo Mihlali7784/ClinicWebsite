@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Registration Success";
+}
+
+<h2>Medical Form Fill</h2>
+
+<p>Thank you for filling the medical form. Your information has been successfully recorded.</p>
+
+<!-- Button to trigger the modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationSuccessModal">
+    Go to Login
+</button>
+
+<!-- Modal for the message -->
+<div class="modal fade" id="registrationSuccessModal" tabindex="-1" role="dialog" aria-labelledby="registrationSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationSuccessModalLabel">Successful</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Thank you for registering as a prenatal patient. Your information has been successfully recorded.
+            </div>
+            <div class="modal-footer">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Go to Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Ensure Bootstrap's JavaScript is loaded to enable modal functionality
+        $(function () {
+            // Show the modal when the page loads (you can trigger it in response to a specific event if needed)
+            $('#registrationSuccessModal').modal('show');
+        });
+    </script>
+}
+

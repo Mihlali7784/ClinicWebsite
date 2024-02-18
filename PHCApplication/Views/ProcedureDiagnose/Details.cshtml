@@ -1,0 +1,61 @@
+﻿@model PHCApplication.Models.Diagnose
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+
+<div>
+    <h4>Diagnose Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DiagnoseDateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DiagnoseDateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treatment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treatment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicalFacility)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MedicalFacility)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FollowUpAppointment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FollowUpAppointment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicationDetails)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MedicationDetails)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.ApplicationUser.Id)*@
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+           @* @Html.DisplayFor(model => model.ApplicationUser.LastName)*@
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.DiagnoseId">Edit</a> |
+    <a asp-action="Index">Back</a>
+</div>

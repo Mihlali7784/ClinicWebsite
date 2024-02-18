@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PHCApplication.Models.CounsellingPrescroption>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMentalHealthLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PrescroptionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PrescroptionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PrescroptionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

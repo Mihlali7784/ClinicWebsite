@@ -1,0 +1,122 @@
+﻿@model PHCApplication.Models.PrenatalAppointment
+@{
+    ViewData["Title"] = "PatientDashboardPrenatalCare";
+    Layout = "~/Views/Shared/_PatientPrenatalCareLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>View Prescriptions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/sidemanu/assets/img/sidebar/mm_logo.ico">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <script src="~/js/site.js"></script>
+
+    <style>
+        /* This is the CSS style for changing the color of the paragraph text to red */
+        p {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+    <form method="post" asp-action="RequestAppointment" >
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Book An Appointment</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="form-group ">
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                            <br/>
+                            <label asp-for="Surname">Surname</label>
+                            <input asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                            <br />
+                            <label asp-for="DateOfBirth">Date Of Birth</label>
+                            <input asp-for="DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            <br />
+                            <label asp-for="Email">Email Address</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <br />
+                            <label asp-for="ContactNumber">Contact Number</label>
+                            <input asp-for="ContactNumber" class="form-control" />
+                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                            <br />
+                            <label asp-for="StreetAddress">Street Address</label>
+                            <input asp-for="StreetAddress" class="form-control" />
+                            <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                            <br />
+                            <label asp-for="City">City</label>
+                            <input asp-for="City" class="form-control" />
+                            <br />
+                            <label asp-for="PostalAddress">Postal Address</label>
+                            <input asp-for="PostalAddress" class="form-control" />
+                            <span asp-validation-for="PostalAddress" class="text-danger"></span>
+                            <br />
+                            <label asp-for="preVisitType">Appointment Type</label>
+                            <br/>
+                            <select asp-for="preVisitType" class="form-select" aria-required="true" id="dropdown-ability">
+                                <option value="">Select Appointment Type--</option>
+                                <option value="first-time">First-Time</option>
+                                <option value="checkup">Checkup</option>
+                                <option value="referred">Referred</option>
+
+                            </select>
+                            <span asp-validation-for="preVisitType" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="form-group row">
+            <div class="col-8 offset-2 row">
+                <div class="col">
+                    <input type="submit" class="btn w-75" style="background-color: lightgreen" value="Book Appointment" />
+                </div>
+                <div class="col">
+                    <a asp-action="PatientDashboardPrenatalCare" class="btn w-75 border-lightbluesteel" style="background-color: lightsteelblue">Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>

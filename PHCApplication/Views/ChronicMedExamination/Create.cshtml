@@ -1,0 +1,67 @@
+﻿@model PHCApplication.Models.Examination
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DocLayout.cshtml";
+}
+
+<h4>Add Examination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <input asp-for="DoctorName" class="form-control" />
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientName" class="control-label"></label>
+                <input asp-for="PatientName" class="form-control" />
+                <span asp-validation-for="PatientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientLastName" class="control-label"></label>
+                <input asp-for="PatientLastName" class="form-control" />
+                <span asp-validation-for="PatientLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientIdNumber" class="control-label"></label>
+                <input asp-for="PatientIdNumber" class="form-control" />
+                <span asp-validation-for="PatientIdNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodType" class="control-label"></label>
+                <select asp-for="BloodType" class="form-control">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                    <option value="O">O</option>
+                </select>
+                <span asp-validation-for="BloodType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Symptoms" class="control-label"></label>
+                <input asp-for="Symptoms" class="form-control" />
+                <span asp-validation-for="Symptoms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diagnose" class="control-label"></label>
+                <input asp-for="Diagnose" class="form-control" />
+                <span asp-validation-for="Diagnose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back</a>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

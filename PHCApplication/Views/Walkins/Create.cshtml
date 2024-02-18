@@ -1,0 +1,65 @@
+﻿@model PHCApplication.Models.Walk_in
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Add this style block to set text color to white */
+    .white-text {
+        color: white;
+    }
+</style>
+
+<h1 class="white-text">Create</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label white-text"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger white-text"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label white-text"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger white-text"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateTime" class="control-label white-text"></label>
+        <input asp-for="DateTime" class="form-control" />
+        <span asp-validation-for="DateTime" class="text-danger white-text"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Specialisation" class="control-label white-text"></label>
+        <select asp-for="Specialisation" class="form-control">
+            <option value="">Select Specialisation</option>
+            <option value="Chronic Medication">Chronic Medication</option>
+            <option value="Specialised Medical Procedures">Specialised Medical Procedures</option>
+            <option value="Prenatal Care">Prenatal Care</option>
+            <option value="Vaccination">Vaccination</option>
+            <option value="Mental Health">Mental Health</option>
+        </select>
+        <span asp-validation-for="Specialisation" class="text-danger white-text"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label white-text"></label>
+        <textarea asp-for="Description" class="form-control white-text" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger white-text"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" style="background-color: white; color: black;" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" class="white-text">Back to List</a>
+</div>

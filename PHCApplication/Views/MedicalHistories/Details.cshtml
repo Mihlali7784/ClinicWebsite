@@ -1,0 +1,48 @@
+﻿@model PHCApplication.Models.MedicalHistory
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DocMentalHealthLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MedicalHistory</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HistoryMentalHealthTreatment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HistoryMentalHealthTreatment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CurrentMentalHealthTreatment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurrentMentalHealthTreatment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Substance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Substance)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,113 @@
+﻿@model PHCApplication.Models.PrenatalPatientReg
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+
+@{
+    ViewBag.Title = "Patient Registration";
+}
+
+<style>
+    body {
+        background-color: white; /* Set the background color to white */
+        color: black; /* Set the text color to black */
+    }
+</style>
+<h2>Patient Registration</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        @Html.EditorFor(model => model.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateOfBirth)
+        @Html.EditorFor(model => model.DateOfBirth, new { @class = "datepicker" })
+        @Html.ValidationMessageFor(model => model.DateOfBirth)
+    </div>
+
+
+    @Html.DropDownListFor(model => model.Gender, new SelectList(
+    new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Male", Value = "Male" },
+        new SelectListItem { Text = "Female", Value = "Female" },
+        new SelectListItem { Text = "Other", Value = "Other" }
+    }, "Value", "Text"), new { @class = "form-control" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DueDate)
+        @Html.EditorFor(model => model.DueDate, new { @class = "datepicker" })
+        @Html.ValidationMessageFor(model => model.DueDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address)
+        @Html.EditorFor(model => model.Address)
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.EditorFor(model => model.PhoneNumber)
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PreferredLanguage)
+        @Html.EditorFor(model => model.PreferredLanguage)
+    </div>
+
+
+    <!-- Modal for the success message -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Successful</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Thank you for filling in the Medical Form as a prenatal patient. Your information has been successfully recorded.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repeat the above block for other form fields -->
+
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary" onclick="showSuccessModal();" />
+    </div>
+
+    @section Scripts {
+    <script>
+        function showSuccessModal() {
+            $('#successModal').modal('show');
+        }
+    </script>
+}
+
+}
+

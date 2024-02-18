@@ -1,14 +1,15 @@
 ﻿
 @{
     ViewData["Title"] = "DocterDashboardSub2";
-    Layout = "~/Views/Shared/_DocLayout.cshtml";
+    Layout = "~/Views/Shared/_DocVaccinationLayout.cshtml";
 }
+
 
 
 <head>
     <meta charset="utf-8">
-    <title>Preschool - Bootstrap Doctor Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Doctor - Bootstrap Doctor Template</title>
+
 
     <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
 
@@ -26,6 +27,20 @@
     <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
 
     <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+    </style>
+
     <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
@@ -42,53 +57,328 @@
             </div>
             <div class="col-md-6">
                 <ul class="breadcrumb mb-0 p-0 float-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="breadcrumb-item"><span>Dashboard</span></li>
+                    <li class="breadcrumb-item"><a href="/Home/PatientMedicalLandingPage"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item"><span>Doctor Dashboard</span></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-        <div class="dash-widget dash-widget5">
-            <span class="float-left"><img src="~/SideManu/assets/img/dash/dash-1.png" alt="" width="80"></span>
-            <div class="dash-widget-info text-right">
-                <span>Departmaent</span>
-                <h3>60</h3>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-        <div class="dash-widget dash-widget5">
-            <div class="dash-widget-info text-left d-inline-block">
-                <span>Employees</span>
-                <h3>100</h3>
-            </div>
-            <span class="float-right"><img src="~/SideManu/assets/img/dash/dash-2.png" width="80" alt=""></span>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-        <div class="dash-widget dash-widget5">
-            <span class="float-left"><img src="~/SideManu/assets/img/dash/dash-3.png" alt="" width="80"></span>
-            <div class="dash-widget-info text-right">
-                <span>Users</span>
-                <h3>2000</h3>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-        <div class="dash-widget dash-widget5">
-            <div class="dash-widget-info d-inline-block text-left">
-                <span>Report</span>
-                <h3>3</h3>
-            </div>
-            <span class="float-right"><img src="~/SideManu/assets/img/dash/dash-4.png" alt="" width="80"></span>
-        </div>
-    </div>
-</div>
+
+<body class="bg-gray-100">
 
 
+
+    <!-- strat wrapper -->
+    <div class="h-screen flex flex-row flex-wrap">
+
+
+        <!-- strat content -->
+        <div class="bg-gray-100 flex-1 p-6 md:mt-16">
+
+
+            <!-- General Report -->
+            <div class="grid grid-cols-4 gap-6 xl:grid-cols-1">
+
+
+                <!-- card -->
+                <a href="/RegVaccine/Index1" class="report-card">
+                    <div class="card">
+                        <div class="card-body flex flex-col">
+                            <!-- top -->
+                            <div class="flex flex-row justify-between items-center">
+                                <div class="h6 text-indigo-700">
+                                    <i class="fas fa-calendar fa-fw fa-4x"></i>
+                                </div>
+                                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                                    <i class="fal fa-chevron-up ml-1"></i>
+                                </span>
+                            </div>
+                            <!-- end top -->
+                            <!-- bottom -->
+                            <div class="mt-8">
+                                <h1 class="h5 num-4"></h1>
+                                <h6 class="custom-heading">Registered Patients</h6>
+                            </div>
+                            <!-- end bottom -->
+                        </div>
+                    </div>
+                    <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </a>
+                <!-- end card -->
+                <!-- card -->
+                <a href="/RegVaccine/Index2 ">
+                    <div class="report-card">
+                        <div class="card">
+                            <div class="card-body flex flex-col">
+
+                                <!-- top -->
+                                <div class="flex flex-row justify-between items-center">
+                                    <div class="h6 text-green-700">
+                                        <i class="fad fa-comments fa-fw fa-4x"></i>
+                                    </div>
+                                    @*<div class="h6 text-red-700">
+                                    <i class="fad fa-book-medical fa-fw fa-4x"></i>
+                                    </div>*@
+                                    <span class="rounded-full text-white badge bg-red-400 text-xs">
+                                        <i class="fal fa-chevron-down ml-1"></i>
+                                    </span>
+                                </div>
+                                <!-- end top -->
+                                <!-- bottom -->
+                                <div class="mt-8">
+                                    <h1 class="h5 num-4"></h1>
+                                    <h6 class="custom-heading">View Reported Events</h6>
+                                </div>
+                                <!-- end bottom -->
+
+                            </div>
+                        </div>
+                        <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                    </div>
+                </a>
+
+                <!-- end card -->
+                <!-- card -->
+                @*  <div class="report-card">
+                <div class="card">
+                <div class="card-body flex flex-col">
+
+                <!-- top -->
+                <div class="flex flex-row justify-between items-center">
+                <div class="h6 text-yellow-600">
+                <i class="fad fa-sitemap fa-fw fa-4x"></i>
+                </div>
+
+                <span class="rounded-full text-white badge bg-teal-400 text-xs">
+
+                <i class="fal fa-chevron-up ml-1"></i>
+                </span>
+                </div>
+                <!-- end top -->
+                <!-- bottom -->
+                <div class="mt-8">
+                <h1 class="h5 num-4"></h1>
+                <h6 class="custom-heading">Reports</h6>
+                </div>
+                <!-- end bottom -->
+
+                </div>
+                </div>
+                <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                </div>*@
+                <!-- end card -->
+                <!-- card -->
+                <a href="/RegVaccine/Create">
+                    <div class="report-card">
+                        <div class="card">
+                            <div class="card-body flex flex-col">
+
+                                <!-- top -->
+                                <div class="flex flex-row justify-between items-center">
+                                    <div class="h6 text-green-700">
+                                        <i class="fad fa-wallet fa-fw fa-4x"></i>
+                                    </div>
+                                    <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                                        <i class="fal fa-chevron-up ml-1"></i>
+                                    </span>
+                                </div>
+                                <!-- end top -->
+                                <!-- bottom -->
+                                <div class="mt-8">
+                                    <h1 class="h5 num-4"></h1>
+                                    <h6 class="custom-heading">Generate Certificates</h6>
+                                </div>
+                                <!-- end bottom -->
+
+                            </div>
+                        </div>
+                        <div class="footer bg-white p-1 mx-4 border border-t-0 rounded rounded-t-none"></div>
+                    </div>
+                </a>
+
+                <!-- end card -->
+
+
+            </div>
+            <!-- End General Report -->
+            <!-- strat Analytics -->
+            <div class="mt-6 grid grid-cols-2 gap-6 xl:grid-cols-1">
+
+                <!-- update section -->
+                <div class="card bg-teal-400 border-teal-400 shadow-md text-white">
+                    <div class="card-body flex flex-row">
+
+                        <!-- image -->
+                        <div class="img-wrapper w-40 h-40 flex justify-center items-center">
+                            <img src="~/Dash/img/happy.svg" alt="img title">
+                        </div>
+                        <!-- end image -->
+                        <!-- info -->
+                        <div class="py-2 ml-10">
+                            <h1 class="h6">Good Job, Docter!</h1>
+                            <p class="text-white text-xs">You've finished all of your tasks for this week.</p>
+
+                            <ul class="mt-4">
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Medical support for patients</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i>Providing Support for you colleagues</li>
+                                <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i>Providing Healthy Vaccines</li>
+                            </ul>
+                        </div>
+                        <!-- end info -->
+
+                    </div>
+                </div>
+                <!-- end update section -->
+                <!-- carts -->
+                <div class="flex flex-col">
+
+                    <!-- alert -->
+                    <div class="alert alert-dark mb-6">
+                        Hi! Wait A Minute . . . . . . Follow Me On Twitter
+                        <a class="ml-2" target="_blank" href="https://twitter.com/MohamedSaid__"></a>
+                    </div>
+                    <!-- end alert -->
+                    <!-- charts -->
+                    <div class="grid grid-cols-2 gap-6 h-full">
+
+                        <div class="card">
+                            <div class="py-3 px-4 flex flex-row justify-between">
+                                <h1 class="h6">
+                                    <span class="num-4"></span>k
+                                    <p>page view</p>
+                                </h1>
+
+                                <div class="bg-teal-200 text-teal-700 border-teal-300 border w-10 h-10 rounded-full flex justify-center items-center">
+                                    <i class="fad fa-eye"></i>
+                                </div>
+                            </div>
+                            <div class="analytics_1"></div>
+                        </div>
+
+                        <div class="card">
+                            <div class="py-3 px-4 flex flex-row justify-between">
+                                <h1 class="h6">
+                                    <span class="num-2"></span>k
+                                    <p>Unique Users</p>
+                                </h1>
+
+                                <div class="bg-indigo-200 text-indigo-700 border-indigo-300 border w-10 h-10 rounded-full flex justify-center items-center">
+                                    <i class="fad fa-users-crown"></i>
+                                </div>
+                            </div>
+                            <div class="analytics_1"></div>
+                        </div>
+
+                    </div>
+                    <!-- charts    -->
+
+                </div>
+                <!-- end charts -->
+
+
+            </div>
+            <!-- end Analytics -->
+            <!-- start numbers -->
+            <div class="grid grid-cols-5 gap-6 xl:grid-cols-2">
+
+                <!-- card -->
+                <div class="card mt-6">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-indigo-600 text-white mr-3">
+                            <i class="fad fa-wallet"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> File</h1>
+                            <p class="text-xs"><span class="num-2"></span> All files</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-green-600 text-white mr-3">
+                            <i class="fad fa-shopping-cart"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> Report</h1>
+                            <p class="text-xs"><span class="num-2"></span> Year report</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
+                            <i class="fad fa-blog"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> posts</h1>
+                            <p class="text-xs"><span class="num-2"></span> active</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-red-600 text-white mr-3">
+                            <i class="fad fa-comments"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> comments</h1>
+                            <p class="text-xs"><span class="num-2"></span> approved</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1 xl:col-span-2">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-pink-600 text-white mr-3">
+                            <i class="fad fa-user"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold"><span class="num-2"></span> memebrs</h1>
+                            <p class="text-xs"><span class="num-2"></span> online</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end nmbers -->
+
+        </div>
+        <!-- end content -->
+
+    </div>
+    <!-- end wrapper -->
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="~/Dash/js/scripts.js"></script>
+    <!-- end script -->
+
+</body>
+</html>
 
 

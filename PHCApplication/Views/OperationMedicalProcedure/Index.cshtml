@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PHCApplication.Models.Procedure>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Procedure process</h1>
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+<p>
+    <a asp-controller="OperationMedicalProcedure" asp-action="Create">Add Procedure</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcedureName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcedureType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcedureDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermsAndConditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcedureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcedureType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcedureDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TermsAndConditions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProcedureId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProcedureId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProcedureId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

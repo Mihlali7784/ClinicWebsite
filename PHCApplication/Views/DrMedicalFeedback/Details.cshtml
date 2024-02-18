@@ -1,0 +1,58 @@
+﻿@model PHCApplication.Models.ChatFeedback
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Feedback Details</h1>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Feedback)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Feedback)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CommunicationRating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CommunicationRating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ResponseTimeInMinutes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ResponseTimeInMinutes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.ApplicationUser.Id)*@
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+            @*@Html.DisplayFor(model => model.ApplicationUser.LastName)*@
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ChatFeedbackId">Edit</a> |
+    <a asp-action="Index">Back</a>
+</div>
+
+

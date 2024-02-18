@@ -1,0 +1,82 @@
+﻿@model PHCApplication.Models.Procedure
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h4>Edit Procedure</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProcedureName" class="control-label"></label>
+                <input asp-for="ProcedureName" class="form-control" />
+                <span asp-validation-for="ProcedureName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcedureType" class="control-label"></label>
+                <select asp-for="ProcedureType" class="form-control">
+                    <option value="operation">Operation</option>
+                    <option value="palpitation">Palpitation</option>
+                    <option value="stitch">Stitch</option>
+                </select>
+                <span asp-validation-for="ProcedureType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcedureDateTime" class="control-label"></label>
+                <input asp-for="ProcedureDateTime" class="form-control" />
+                <span asp-validation-for="ProcedureDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" type="number" min="1" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipment" class="control-label"></label>
+                <select asp-for="Equipment" class="form-control">
+                    <option value="X-ray Machine">X-ray Machine</option>
+                    <option value="Ultrasound Scanner">Ultrasound Scanner</option>
+                    <option value="Surgical Tools">Surgical Tools</option>
+                    <option value="MRI Machine">MRI Machine</option>
+                </select>
+                <span asp-validation-for="Equipment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <input asp-for="RoomNumber" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="TermsAndConditions" class="form-check-input" type="checkbox" />
+                    <label class="form-check-label" asp-for="TermsAndConditions">
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+                <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back </a>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

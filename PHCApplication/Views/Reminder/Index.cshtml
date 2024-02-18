@@ -1,0 +1,250 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PatientMedicalProcedureLayout.cshtml";
+}
+
+@model IEnumerable<PHCApplication.Models.Reminder>
+
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<p>
+    <a asp-controller="Reminder" asp-action="Create">Create New Reminder</a>
+</p>
+
+<div id="calendar"></div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReminderType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReminderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRecurring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReminderType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReminderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsCompleted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Priority)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsRecurring)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ReminderId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ReminderId">Details</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">No upcoming reminders found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: [
+    @foreach (var reminder in Model)
+    {
+        <text>
+                    {
+                        title: "@reminder.ReminderType",
+                        start: "@reminder.ReminderDate.ToString("yyyy-MM-ddTHH:mm:ss")",
+                        description: "@reminder.Description",
+                        color: "@(reminder.IsCompleted ? "green" : "red")"
+                    },
+        </text>
+    }
+                ],
+            eventContent: function (arg) {
+                return { html: '<b>' + arg.event.title + '</b><p>' + arg.event.extendedProps.description + '</p>' };
+            },
+            eventDidMount: function (arg) {
+                var reminderDate = new Date(arg.event.start);
+                var today = new Date();
+                if (reminderDate.getDate() === today.getDate() && reminderDate.getMonth() === today.getMonth() && reminderDate.getFullYear() === today.getFullYear()) {
+                    arg.el.style.backgroundColor = 'lightblue';
+                }
+            }
+        });
+        calendar.render();
+    });
+</script>
+
+
+
+
+@*
+@model IEnumerable<PHCApplication.Models.Reminder>
+
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+
+<p>
+    <a asp-action="Create">Create New Reminder</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReminderType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReminderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRecurring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+           @foreach (var item in Model)
+            {
+              <tr>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.ReminderType)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.ReminderDate)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.Description)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.IsCompleted)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.Priority)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.IsRecurring)
+                  </td>
+                  <td>
+                     @Html.DisplayFor(modelItem => item.Location)
+                  </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                 </td>
+                 <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReminderId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ReminderId">Details</a>
+                 </td>
+          
+              </tr>
+           }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">No upcoming reminders found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@

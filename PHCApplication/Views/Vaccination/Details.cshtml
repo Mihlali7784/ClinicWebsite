@@ -1,0 +1,107 @@
+﻿
+@model PHCApplication.Models.Details
+
+
+<form method="post" asp-action="Details" style="background-color: aliceblue;">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2 class="text-black-100 pl-3">Register here</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            @* <span asp-validation-for="Name" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Surname">Surname</label>
+                            <input asp-for="Surname" class="form-control" />
+                            @*<span asp-validation-for="Surname" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="DateOfBirth">Date Of Birth</label>
+                            <input asp-for="DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                            @*   <span asp-validation-for="DateOfBirth" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                            @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="ContactNumber">Contact Number</label>
+                            <input asp-for="ContactNumber" class="form-control" />
+                            @* <span asp-validation-for="ContactNumber" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="City">City</label>
+                            <input asp-for="City" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="StreetAddress">Street Address</label>
+                            <input asp-for="StreetAddress" class="form-control" />
+                            @*  <span asp-validation-for="StreetAddress" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="PostalAddress">Postal Address</label>
+                            <input asp-for="PostalAddress" class="form-control" />
+                            @* <span asp-validation-for="PostalAddress" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="VaccinationType">Vaccination Type</label>
+                            <select asp-for="VaccinationType" class="form-select" aria-required="true" id="dropdown-ability">
+                                <option value="">--Select Vaccination Type--</option>
+                                <option value="Covid-19">COVID-19</option>
+                                <option value="Malaria">Malaria</option>
+                                <option value="Flu">FLU</option>
+                                <option value="ChickenPox">Chickenpox</option>
+                            </select>
+                            @* <span asp-validation-for="VaccinationType" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="DateOfVaccination">Date Of Vaccination</label>
+                            <input asp-for="DateOfVaccination" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="YYYY-MM-DD" />
+                            @*<span asp-validation-for="DateOfVaccination" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="UUnderlyingHealthConditions">Underlying Health Conditions (if any)</label>
+                            <input asp-for="UUnderlyingHealthConditions" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="CurrentMedications">Current Medication (if any)</label>
+                            <input asp-for="CurrentMedications" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="PreviousVaccinationHistory">Previous Vaccination History (if any)</label>
+                            <input asp-for="PreviousVaccinationHistory" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Allergies">Allergies</label>
+                            <input asp-for="Allergies" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Register" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

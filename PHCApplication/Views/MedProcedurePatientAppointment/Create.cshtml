@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "PatientDashboardMedicalProcedures";
+    Layout = "~/Views/Shared/_PatientMedicalProcedureLayout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Patient - Bootstrap Patient Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+
+        .picture-textbox {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+            .picture-textbox select {
+                appearance: none;
+                background: none;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                margin-left: 5px;
+            }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .custom-btn {
+            font-size: 18px;
+            padding: 12px 30px;
+            width: 45%; /* Adjust the width to control the space between buttons */
+        }
+
+    </style>
+
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+
+@model PHCApplication.Models.Appointment
+@{
+    var errorMessage = TempData["ErrorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+
+
+<div class="row">
+    <div class="col-md-5 offset-md-1">
+        <form method="post" asp-action="Create" autocomplete="off">
+            <h2 class="mb-4 display-4">Add Appointment.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-floating">
+                <input asp-for="FirstName" class="form-control" autocomplete="off" aria-required="true" placeholder="First Name">
+                @* <label asp-for="LastName">Last Name</label>*@
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="LastName" class="form-control" autocomplete="off" aria-required="true" placeholder="Last Name" />
+                @*<label asp-for="LastName">Last Name</label>*@
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="DateTime" class="form-control" autocomplete="off" aria-required="true" placeholder="Date" />
+                @* <label asp-for="DateTime">Appointment Date</label>*@
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div class="form-floating">
+                <input asp-for="Notes" class="form-control" autocomplete="off" aria-required="true" placeholder="Note" />
+                @*<label asp-for="Notes">Note</label>*@
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+           @* <div class="form-floating">
+                <select asp-for="Status" class="form-select" aria-required="true" id="dropdown-ability">
+                    <option value="">Status</option>
+                    <option value="Schedule">Reschedule</option>
+                    <option value="complete">Complete</option>
+                    <option value="Cancelled">Cancel</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>*@
+
+
+            <br />
+            <style>
+                select#dropdown-ability:hover {
+                    cursor: pointer;
+                }
+            </style>
+            <div class="form-group row">
+                <div class="form-group row">
+                    <div class="col-70 button-container">
+                        <button type="submit" class="btn btn-lg btn-primary custom-btn ">Save</button>
+                        <a asp-action="Index" class="btn btn-danger custom-btn">Back</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script>
+    // Get the input element for registration date and time
+    const registrationDateTimeInput = document.getElementById('registrationDateTime');
+
+    // Function to format the date and time in 'YYYY-MM-DD HH:mm' format
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
+    }
+
+    // Update the input field with the current date and time
+    registrationDateTimeInput.value = formatDate(new Date());
+</script>

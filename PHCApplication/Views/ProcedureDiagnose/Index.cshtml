@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PHCApplication.Models.Diagnose>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Create Booking</h1>
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+
+<p>
+    <a asp-controller="ProcedureDiagnose" asp-action="Create">Add Diagnose</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiagnoseDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalFacility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollowUpAppointment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicationDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiagnoseDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Treatment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalFacility)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FollowUpAppointment)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicationDetails)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                    @*@Html.DisplayFor(modelItem => item.ApplicationUser.LastName)*@
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DiagnoseId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DiagnoseId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DiagnoseId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

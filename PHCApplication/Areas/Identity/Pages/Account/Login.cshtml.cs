@@ -111,7 +111,7 @@ namespace PHCApplication.Areas.Identity.Pages.Account
 
             ReturnUrl = returnUrl;
         }
-
+        
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -130,33 +130,76 @@ namespace PHCApplication.Areas.Identity.Pages.Account
                     var emails = await _userManager.GetEmailAsync(user);
 
 
-                    if (emails.Contains("Drtony@gmail.com")) //Sub1 doctor 
+                    if (emails.Contains("Drtony@gmail.com")) //Chronic  doctor 
                     {
-                        return RedirectToAction("IndexPage", "Home");
+                        return RedirectToAction("DocterDashboardSub1", "Dashboard");
                     }
-                    else if (emails.Contains("Drivany@gmail.com "))//Sub2 doctor 
+                    else if (emails.Contains("DrSotobe@gmail.com"))//Vaccination doctor 
                     {
                         return RedirectToAction("DocterDashboardSub2", "Dashboard");
                     }
-                    else if (emails.Contains("DrBukelwa@gmail.com "))//Sub3 doctor 
+                    else if (emails.Contains("Drmzibe@gmail.com"))//MentalHealth doctor 
                     {
                         return RedirectToAction("DocterDashboardSub3", "Dashboard");
                     }
-                    else if (emails.Contains("Drsaints@gmail.com"))//Sub4 doctor 
+                    else if (emails.Contains("Drsaints@gmail.com"))//Medical Procedures doctor 
                     {
                         return RedirectToAction("DocterDashboardSub4", "Dashboard");
                     }
-                    else if (emails.Contains("editme@gmail.com"))//Sub5 docter 
+                    else if (emails.Contains("DrVictoria@gmail.com"))//Medical Procedures doctor 
+                    {
+                        return RedirectToAction("DocterDashboardSub4", "Dashboard");
+                    }
+                    else if (emails.Contains("DrVictoria@gmail.com"))//Medical Procedures doctor 
+                    {
+                        return RedirectToAction("DocterDashboardSub4", "Dashboard");
+                    }
+                    else if (emails.Contains("DrLulama@gmail.com"))//Medical Procedures doctor 
+                    {
+                        return RedirectToAction("DocterDashboardSub4", "Dashboard");
+                    }
+                    else if (emails.Contains("DrNorth@gmail.com"))//Prenatal Care docter 
                     {
                         return RedirectToAction("DocterDashboardSub5", "Dashboard");
-                        
-                    }//Docters ends here for all 5 sub system
-                    else // Patient
+
+                    }
+                    else if (emails.Contains("PharmMihlali@gmail.com"))//Chronic Medication Pharmacist
                     {
-                        return RedirectToAction("PatientDashboard", "Dashboard");
+                        return RedirectToAction("pharmacistDashboardChronicMedication", "Dashboard");
+                    }
+                    else if (emails.Contains("PharmSiyamthanda@gmail.com"))//Mental Health Pharmacist
+                    {
+                        return RedirectToAction("pharmacistDashboardMentalHealth", "Dashboard");
+                    }
+                    else if (emails.Contains("PharmLandile@gmail.com"))//Medical Procedures Pharmacist
+                    {
+                        return RedirectToAction("pharmacistDashboardMedicalProcedures", "Dashboard");
+                    }
+                    else if (emails.Contains("PharmKatlego@gmail.com"))//Prenatal Care Pharmacist
+                    {
+                        return RedirectToAction("pharmacistDashboardPrenatalCare", "Dashboard");
+                    }
+                    else if (emails.Contains("AdminNdaba@gmail.com"))//Vaccination Admin
+                    {
+                        return RedirectToAction("AdminDashboardVaccination", "Dashboard");
+                    }
+                    else if (emails.Contains("AdminNqokiso@gmail.com"))//Medical Procedures Admin
+                    {
+                        return RedirectToAction("AdminDashboardMedicalProcedures", "Dashboard");
+                    }
+                    else if (emails.Contains("AdminKat@gmail.com"))//Prenatal Care Admin
+                    {
+                        return RedirectToAction("AdminDashboardPrenatalCare", "Dashboard");
+                    }
+                    else if (emails.Contains("AssistantSbiya@gmail.com"))//vacc pharm
+                    {
+                        return RedirectToAction("DoctorAssistantDashboardVaccination", "Dashboard");
+                    }
+                    else
+                    {
+                        return RedirectToAction("PatientMedicalLandingPage", "Home");
                     }
 
-                    //U have add other users in this page
 
                 }
                 if (result.RequiresTwoFactor)

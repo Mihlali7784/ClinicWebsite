@@ -4,20 +4,15 @@ namespace PHCApplication.Models
 {
     public class Department
     {
-
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required.")]
-        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
-        [Display(Name = "Name")]
+        [Required(ErrorMessage = "Department name is required.")]
+        [StringLength(100, ErrorMessage = "Department name should not exceed 100 characters.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Department Head is required.")]
-        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
-        public string Head { get; set; }
+        [StringLength(500, ErrorMessage = "Description should not exceed 500 characters.")]
+        public string Description { get; set; }
 
         [Required]
         [EmailAddress]
@@ -35,10 +30,8 @@ namespace PHCApplication.Models
         [StringLength(100, ErrorMessage = "Location should be between {2} and {1} characters.", MinimumLength = 5)]
         public string Location { get; set; }
 
-        [Required(ErrorMessage = "Description is required.")]
-        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
-        public string Description { get; set; }
+        
+       
 
 
     }

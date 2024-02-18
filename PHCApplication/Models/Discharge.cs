@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PHCApplication.Areas.Identity.Data;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PHCApplication.Models
 {
     public class Discharge
     {
         [Key]
-        public int ID { get; set; }
+        public int DischargeId { get; set; }
 
         [Required(ErrorMessage = "First Name is required.")]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
@@ -20,23 +22,34 @@ namespace PHCApplication.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Check In Date is required.")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Check In Date")]
-        public DateTime CheckInDate { get; set; }
+        [Required(ErrorMessage = "Discharge date is required.")]
+        [Display(Name = "Check in Date")]
+        [DataType(DataType.Date)]
+        public DateTime CheckIn { get; set; }
+
+        [Required(ErrorMessage = "Discharge date is required.")]
+        [Display(Name = "Discharge Date")]
+        [DataType(DataType.Date)]
+        public DateTime DischargeDate { get; set; }
+
+        [Required(ErrorMessage = "Room is required")]
+        public string Room { get; set; }
+
+        [Required(ErrorMessage = "Appointment status is required.")]
+        public string Status { get; set; }
+
+        [StringLength(500, ErrorMessage = "Discharge summary should not exceed 500 characters.")]
+        [Display(Name = "Discharge Summary")]
+        public string Summary { get; set; }
+
+        //Pass Cities Id as fk
+        [ForeignKey("ApplicationUser")]
+        [Display(Name = "Patient")]
+        public string UserID { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
 
-        [Required(ErrorMessage = "Check Out Date is required.")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Check Out Date")]
-        public DateTime CheckOutDate { get; set; }
 
-
-        [Required(ErrorMessage = "Reason is required.")]
-        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The Reason field can only contain letters.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Reason must be between 2 and 50 characters")]
-        public string Reason { get; set; }
     }
 }
+

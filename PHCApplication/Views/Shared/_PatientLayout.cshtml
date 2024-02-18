@@ -3,16 +3,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
 	<meta charset="utf-8">
-	<title>Mind Meld</title>
+	<title>eNompilo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 	<link rel="shortcut icon" type="image/x-icon" href="~/sidemanu/assets/img/sidebar/mm_logo.ico">
 
 	<link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
 
@@ -25,27 +23,14 @@
 
 	<link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
 
+	<script src="~/js/site.js"></script>
+
 	<link rel="stylesheet" href="~/SideManu/assets/css/style.css">
-
-	<!-- DataTables CSS file -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-
-	<!-- jQuery library -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-	<!-- DataTables JavaScript file -->
-	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap4.min.css" />
-
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>
-
+	<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
 </head>
-
 
 <body>
 
@@ -74,7 +59,7 @@
 
 						<!--Logo Company Here-->
 
-						<a href="index.html" class="mobile-logo d-md-block d-lg-none d-block"><img src="~/SideManu/assets/img/logo1.png" alt="" width="30" height="30"></a>
+						<a href="index.html" class="mobile-logo d-md-block d-lg-none d-block"><img src="~/SideManu/assets/img/" alt="" width="30" height="30"></a>
 					</li>
 				</ul>
 
@@ -105,26 +90,33 @@
 					<li class="nav-item dropdown has-arrow">
 						<a href="#" class=" nav-link user-link" data-toggle="dropdown">
 							<span class="user-img">
-								<img class="rounded-circle" src="~/SideManu/assets/img/user-06.jpg" width="30" alt="Admin">
+								<img class="rounded-circle" src="~/SideManu/assets/img/user-06.jpg" width="30" alt="Patient">
 								<span class="status online"></span>
 							</span>
 							<span>Patient</span>
 						</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="profile.html">My Profile</a>
-							<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+							<a class="dropdown-item" href="~/Identity/Account/Manage">My Profile</a>
+
+
+							<a class="dropdown-item" href="~/Identity/manage/index.cshtml.cs">Edit Profile</a>
 							<a class="dropdown-item" href="settings.html">Settings</a>
-							<a class="dropdown-item" href="login.html">Logout</a>
+							<a class="dropdown-item" href="~/Identity/Account/Logout">Logout</a>
+
 						</div>
 					</li>
 				</ul>
 				<div class="dropdown mobile-user-menu float-right">
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item" href="profile.html">My Profile</a>
+						@*<a class="dropdown-item" href="profile.html">My Profile</a>
 						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
 						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="login.html">Logout</a>
+						<a class="dropdown-item" href="login.html">Logout</a>*@
+						<a class="dropdown-item" href="~/Identity/Account/Manage">My Profile</a>
+						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+						<a class="dropdown-item" href="settings.html">Settings</a>
+						<a class="dropdown-item" href="~/Identity/Account/Manage">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -137,34 +129,28 @@
 					<div class="header-left">
 						<a href="index.html" class="logo">
 							@*<img src="~/SideManu/assets/img/logo1.png" width="40" height="40" alt="">*@
-							<img src="~/sidemanu/assets/img/sidebar/mm_logo.ico" width="40" height="40" alt="">
-							<span class="text-uppercase">Clash Code</span>
+							@*<img src="~/sidemanu/assets/img/sidebar/mm_logo.ico" width="40" height="40" alt="">*@
+							<span class="text-uppercase">eNompilo</span>
 						</a>
 					</div>
 					<ul class="sidebar-ul">
 						<li class="menu-title">Menu</li>
 						<li class="active">
 							<!-- <a class="nav-link text-dark">Privacy</a> -->
-							<a asp-area="" asp-controller="" asp-action=""> <img src="~/SideManu/assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
+							<a asp-area="" asp-controller="Dashboard" asp-action="PatientDashboard"> <img src="~/SideManu/assets/img/sidebar/icons8-home-flaticons-lineal-color-96.png" alt="icon"><span>Dashboard</span></a>
 						</li>
 						<li>
-							<a asp-area="" asp-controller="Booking" asp-action="Index"><img src="~/SideManu/assets/img/sidebar/icon-7.png" alt="icon"> <span> Book appointment</span></a>
+							<a asp-area="" asp-controller="C" asp-action="Index"><img src="~/SideManu/assets/img/sidebar/icons8-booking-sbts2018-flat-96.png" alt="icon"><span>Prescription</span></a>
 						</li>
 						<li>
-							<a asp-area="" asp-controller="" asp-action=""><img src="~/SideManu/assets/img/sidebar/icon-12.png" alt="icon"> <span>Collection Dates</span></a>
+							<a asp-area="" asp-controller="ChronicMedication" asp-action="MedicalBook"><img src="~/SideManu/assets/img/sidebar/icons8-book-icongeek26-linear-colour-96.png" alt="icon"> <span>Medical Book</span></a>
 						</li>
 						<li>
-							<a asp-area="" asp-controller="" asp-action=""><img src="~/SideManu/assets/img/sidebar/icon-5.png" alt="icon"> <span> Test 3</span></a>
-						</li>
-						<li>
-							<a href="#"><img src="~/SideManu/assets/img/sidebar/icon-8.png" alt="icon"> <span>Reports</span></a>
-						</li>
-						<li>
-							<a href="#"><img src="~/SideManu/assets/img/sidebar/icon-4.png" alt="icon"><span> FQA</span></a>
+							<a asp-area="" asp-controller="ChronicMedication" asp-action="Collections"><img src="~/SideManu/assets/img/sidebar/icons8-collection-filled-outline-96.png" alt="icon"><span>View collections</span></a>
 						</li>
 						<!---->
 						<li>
-							<a href="#"><img src="~/SideManu/assets/img/sidebar/icon-14.png" alt="icon"> <span>Settings</span></a>
+							<a href="#"><img src="~/SideManu/assets/img/sidebar/icons8-setting-xnimrodx-lineal-color-96.png" alt="icon"> <span>Settings</span></a>
 						</li>
 						<!---->
 
@@ -226,15 +212,5 @@
 	<script src="~/SideManu/assets/js/chart-data.js"></script>
 
 	<script src="~/SideManu/assets/js/app.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('#myTable').DataTable();
-		});
-	</script>
-
 </body>
 </html>
-
-
-
-

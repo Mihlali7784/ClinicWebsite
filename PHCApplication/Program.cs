@@ -8,7 +8,7 @@ var connectionString = builder.Configuration.GetConnectionString("PHCApplication
 builder.Services.AddDbContext<PHCApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
 //    .AddEntityFrameworkStores<PHCApplicationDbContext>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<PHCApplicationDbContext>().AddDefaultTokenProviders();
 
@@ -31,14 +31,22 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
-
 app.UseEndpoints(endpoints =>
 {
+
+    endpoints.MapControllerRoute(
+            name: "calendar",
+            pattern: "Reminder/Calendar",
+            defaults: new { controller = "Reminder", action = "Calendar" }
+        );
+
     app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
     endpoints.MapRazorPages();
+
+
 }
 );
 app.Run();

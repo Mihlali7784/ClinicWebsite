@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "DocterDashboardSub4";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Doctor - Bootstrap Doctor Template</title>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Add more styles as needed */
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+
+@model IEnumerable<PHCApplication.Models.Appointment>
+
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+<style>
+
+    .container {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        margin: 5px;
+    }
+
+    body {
+        background-color: lightpink; /* Change this color to the desired background color */
+        margin: 0; /* Reset margin to remove default spacing */
+        padding: 0; /* Reset padding to remove default spacing */
+    }
+</style>
+<form>
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h3 class="text-primary">Patient Discharge Details</h3>
+                <hr />
+            </div>
+            <div>
+                <button asp-controller="MedProcedureDocAppointment" asp-action="Create" class="btn btn-primary mb-3">Manage Discharge</button>
+            </div>
+        </div>
+        <br />
+        <table class="table table-responsive table-hover table-hover table-bordered">
+            <thead>
+                <tr class="table-active">
+                    <th class="text-center">Id</th>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Created Date</th>
+                    <th class="text-center col-2">Note</th>
+                    <th class="text-center col-2">Status</th>
+                    
+
+
+                    @*<th class="text-center col-2">Status</th>
+                    <th class="text-center col-2">Doctor</th>*@
+                    <th class="text-center">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var MedProcedureDocAppointment in Model)
+                    {
+                        <tr>
+                            <td>@MedProcedureDocAppointment.Id</td>
+                            <td>@MedProcedureDocAppointment.FirstName</td>
+                            <td>@MedProcedureDocAppointment.LastName</td>
+                            <td class="text-center">@MedProcedureDocAppointment.DateTime</td>
+                            <td>@MedProcedureDocAppointment.Notes</td>
+                            <td>@MedProcedureDocAppointment.Status</td>
+                            
+
+                            <td>
+                                <div class="w-100 btn-group" role="group">
+                                    <a asp-controller="fighter" asp-action="Update" asp-route-id="@MedProcedureDocAppointment.Id" class="btn btn-primary mx-1">Update</a>
+                                    <a asp-controller="fighter" asp-action="Delete" asp-route-id="@MedProcedureDocAppointment.Id" class="btn btn-danger mx-1">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">
+                            <div>
+                                No Appointment info available at the moment for you
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+

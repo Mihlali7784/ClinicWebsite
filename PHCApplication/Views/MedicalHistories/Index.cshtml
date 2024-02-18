@@ -1,0 +1,62 @@
+﻿@model IEnumerable<PHCApplication.Models.MedicalHistory>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMentalHealthLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HistoryMentalHealthTreatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentMentalHealthTreatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Substance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HistoryMentalHealthTreatment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentMentalHealthTreatment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Substance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

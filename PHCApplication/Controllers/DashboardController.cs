@@ -6,28 +6,24 @@ namespace PHCApplication.Controllers
 {
     public class DashboardController : Controller
     {
-     
+
         /*
          * 
          Remeber you all use one user
          *
          */
 
-        public ActionResult PatientDashboard()
-        {
-            return View();
-        }
-        /*
-         ********************************* 
-         */
 
         //Sub 1 Chronic Medication
         public ActionResult DocterDashboardSub1()
         {
             return View();
         }
-
-        public ActionResult pharmacistDashboardSub1()
+        public ActionResult pharmacistDashboardChronicMedication()
+        {
+            return View();
+        }
+        public ActionResult PatientDashboard()
         {
             return View();
         }
@@ -39,7 +35,11 @@ namespace PHCApplication.Controllers
         {
             return View();
         }
-        public ActionResult pharmacistDashboardSub2()
+        public ActionResult AdminDashboardVaccination()
+        {
+            return View();
+        }
+        public IActionResult PatientDashboardVaccination()
         {
             return View();
         }
@@ -49,22 +49,34 @@ namespace PHCApplication.Controllers
         {
             return View();
         }
-        public ActionResult pharmacistDashboardSub3()
+        public ActionResult pharmacistDashboardMentalHealth()
+        {
+            return View();
+        }
+       
+        public IActionResult PatientDashboardMentalhealth()
         {
             return View();
         }
 
         //Sub 4 Specialized Medical Procedures
+        
         public ActionResult DocterDashboardSub4()
         {
             return View();
         }
-
-        public ActionResult pharmacistDashboardSub4()
+       
+        public ActionResult pharmacistDashboardMedicalProcedures()
         {
             return View();
         }
-        public ActionResult AdminDashboardSub4()
+       
+        public ActionResult AdminDashboardMedicalProcedures()
+        {
+            return View();
+        }
+        
+        public IActionResult PatientDashboardMedicalProcedures()
         {
             return View();
         }
@@ -74,11 +86,23 @@ namespace PHCApplication.Controllers
         {
             return View();
         }
-        public ActionResult pharmacistDashboardSub5()
+        public ActionResult pharmacistDashboardPrenatalCare()
         {
             return View();
         }
-        public IActionResult AdminDashboardSub5()
+        public IActionResult AdminDashboardPrenatalCare()
+        {
+            return View();
+        }
+        public IActionResult PatientDashboardPrenatalCare()
+        {
+            return View();
+        }
+        public IActionResult pharmacistDashboardVaccination()
+        {
+            return View();
+        }
+        public IActionResult DoctorAssistantDashboardVaccination()
         {
             return View();
         }

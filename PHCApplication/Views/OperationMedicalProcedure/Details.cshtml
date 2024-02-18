@@ -1,0 +1,74 @@
+﻿@model PHCApplication.Models.Procedure
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Procedure Details</h1>
+
+<div>
+    <h4>Procedure</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcedureName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProcedureName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcedureType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProcedureType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcedureDateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProcedureDateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermsAndConditions)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermsAndConditions)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+        </dd>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.ApplicationUser.Id)*@
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+            @Html.DisplayFor(model => model.ApplicationUser.LastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProcedureId">Edit</a> |
+    <a asp-action="Index">Back</a>
+</div>

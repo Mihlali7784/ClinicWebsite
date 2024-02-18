@@ -1,0 +1,81 @@
+﻿@model PHCApplication.Models.ChatFeedback
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_PatientMedicalProcedureLayout.cshtml";
+}
+
+
+<h1>Feedback Details</h1>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Feedback)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Feedback)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WaitTimeInMinutes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WaitTimeInMinutes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TreatmentEffectiveness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TreatmentEffectiveness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CommunicationClarity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CommunicationClarity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EaseOfAppointment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EaseOfAppointment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SatisfactionWithExperience)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SatisfactionWithExperience)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+        </dd>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.ApplicationUser.Id)*@
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+            @Html.DisplayFor(model => model.ApplicationUser.LastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ChatFeedbackId">Edit</a> |
+    <a asp-action="Index">Back</a>
+</div>

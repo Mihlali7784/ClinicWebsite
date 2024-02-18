@@ -1,0 +1,47 @@
+﻿@model PHCApplication.Models.OrderVacc
+
+<form method="post" asp-action="OrderVaccine" style="background-color: aliceblue;">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2 class="text-black-100 pl-3">Order Vaccine</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+
+                    <div class="col-4">
+                        <label asp-for="VaccType">Vaccination Type</label>
+                        <select asp-for="VaccType" class="form-select" aria-required="true" id="dropdown-ability">
+                            <option value="">--Select Vaccine To Order--</option>
+                            <option value="Covid-19">COVID-19</option>
+                            <option value="Malaria">Malaria</option>
+                            <option value="Flu">FLU</option>
+                            <option value="ChickenPox">Chickenpox</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <label asp-for="Quamtity">Quantity</label>
+                        <input asp-for="Quamtity" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="StorageRequi">Storage Requirements</label>
+                        <input asp-for="StorageRequi" class="form-control" />
+                    </div>
+
+                  
+                    <br />
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Submit Order" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

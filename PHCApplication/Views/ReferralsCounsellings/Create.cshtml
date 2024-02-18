@@ -1,0 +1,48 @@
+﻿@model PHCApplication.Models.ReferralsCounselling
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DocMentalHealthLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ReferralsCounselling</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medication" class="control-label"></label>
+                <select asp-for="Medication" class="form-control">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Medication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desc" class="control-label"></label>
+                <textarea asp-for="Desc" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.CodeAnalysis;
+using System.ComponentModel.DataAnnotations;
 
 namespace PHCApplication.Models
 {
@@ -6,24 +7,46 @@ namespace PHCApplication.Models
     {
 
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required.")]
+        [Required(ErrorMessage = "Medication name is required.")]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
-        [Display(Name = "Name")]
         public string Name { get; set; }
+        
+        [Required(ErrorMessage = "Dosage is required.")]
+        [StringLength(50, ErrorMessage = "Dosage should not exceed 50 characters.")]
+        public string Dosage { get; set; }
 
-        [Required(ErrorMessage = "Please Select Doctor Type")]
-        [Display(Name = "Doctor Type")]
-        public string Type { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Prescription Date")]
+        public DateTime PrescriptionDate { get; set; }
 
-        [Required(ErrorMessage = "Description is required.")]
+        [Required(ErrorMessage = "Treatment is required.")]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
-        public string Description { get; set; }
+        public string Treatment { get; set; }
+
+       
+        [Required(ErrorMessage = "Patient is required.")]
+        [Display(Name = "Patient")]
+        public int PharmacistId { get; set; }
+
+        [Display(Name = "Dosage Frequency")]
+        public DosageFrequency DosageFrequency { get; set; }
+
+        [StringLength(200, ErrorMessage = "Notes should not exceed 200 characters.")]
+        public string Notes { get; set; }
+        
 
 
-
+    }
+    public enum DosageFrequency
+    {
+        OncePerDay,
+        TwicePerDay,
+        ThreeTimesPerDay,
+        FourTimesPerDay,
+        AsNeeded
     }
 }

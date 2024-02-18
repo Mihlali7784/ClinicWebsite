@@ -5,21 +5,54 @@ namespace PHCApplication.Models
     public class Appointment
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
+        [Required(ErrorMessage = "First Name is required.")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Please Select Appointment tYPE")]
-        [Display(Name = "Appointment Type")]
-        public string AppointmentType { get; set; }
+        [Required(ErrorMessage = "Last Name is required.")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "The name field can only contain letters.")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
+        [Display(Name = "Last Name")]
+        
+        public string LastName { get; set; }
+    
 
-        [Required(ErrorMessage = "date and time is required.")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Appointment date and time are required.")]
         [Display(Name = "Date and Time")]
-        public DateTime dateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        [FutureDate(ErrorMessage = "Appointment date must be in the future.")]
+        public DateTime DateTime { get; set; }
 
-         [Required(ErrorMessage = "Please Select Doctor Type")]
-        [Display(Name = "Doctor Type")]
-        public string DoctorType { get; set; }
+       
+        [StringLength(200, ErrorMessage = "Notes should not exceed 200 characters.")]
+        public string Notes { get; set; }
+
+        
+
+        [Required(ErrorMessage = "Appointment status is required.")]
+        public AppointmentStatus Status { get; set; }
+
+        
     }
+    public enum AppointmentStatus
+    {
+        Schedule,
+        Completed,
+        Canceled
+    }
+
+    public class FutureDateAttribute : ValidationAttribute
+    {
+        public override bool IsValid(object value)
+        {
+            var date = (DateTime)value;
+            return date > DateTime.Now;
+        }
+    }
+
+    
 }

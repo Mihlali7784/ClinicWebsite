@@ -10,12 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="~/css/background.css" rel="stylesheet" />
+
+   
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 custom-nav">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PHCApplication</a>
+                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PHCApplication</a>*@
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/sidemanu/assets/img/sidebar/clashcode.jpg" alt="PHCApplication Logo" style="width: 50px; height: auto">
+                </a>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial.cshtml" />
                     <ul class="navbar-nav flex-grow-1">

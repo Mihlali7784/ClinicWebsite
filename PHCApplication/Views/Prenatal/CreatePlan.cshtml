@@ -1,0 +1,46 @@
+﻿@model PHCApplication.Models.PrenatalCarePlan
+
+@{
+    ViewBag.Title = "Prenatal Care Plan Details";
+    Layout = "~/Views/Shared/_PrenatalCareLayout.cshtml";
+}
+
+<h2>Prenatal Care Plan Details</h2>
+
+@if (Model == null)
+{
+    <p>Prenatal care plan not found.</p>
+}
+else
+{
+    <dl>
+        <dt>ID:</dt>
+        <dd>@Model.Id</dd>
+        <dt>Patient Name:</dt>
+        <dd>@Model.PatientName</dd>
+        <dt>Due Date:</dt>
+        <dd>@Model.DueDate.ToShortDateString()</dd>
+    </dl>
+
+    <h3>Assessments</h3>
+    @if (Model.Assessments != null && Model.Assessments.Any())
+    {
+        <ul>
+            @foreach (var assessment in Model.Assessments)
+            {
+                <li>
+                    <strong>Assessment Date:</strong> @assessment.Date.ToShortDateString()
+                    <br />
+                    <strong>Description:</strong> @assessment.Description
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No assessments have been recorded for this prenatal care plan.</p>
+    }
+}
+
+<p>@Html.ActionLink("Back to Prenatal Care Plans List", "Index")</p>
+

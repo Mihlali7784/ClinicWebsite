@@ -1,0 +1,85 @@
+﻿@model IEnumerable<PHCApplication.Models.ChatFeedback>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h1>Index</h1>
+<h1>Feedback section</h1>
+@{
+    var SuccessMessage = TempData["SuccessMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(SuccessMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong>@SuccessMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+
+}
+
+<p>
+    <a asp-controller="DrMedicalFeedback" asp-action="Create">Chat feedback</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommunicationRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResponseTimeInMinutes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feedback)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommunicationRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResponseTimeInMinutes)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                    @*@Html.DisplayFor(modelItem => item.ApplicationUser.LastName)*@
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ChatFeedbackId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ChatFeedbackId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ChatFeedbackId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

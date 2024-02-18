@@ -1,0 +1,100 @@
+﻿@model IEnumerable<PHCApplication.Models.Details>
+
+@*<head>
+    <link rel="stylesheet" href="~/css/View.css" asp-append-version="true" />
+
+</head>*@
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of People Who Registered To Vaccinate</h2>
+        </div>
+        @*<div class="col-6 text-right">
+        <a asp-controller="Vaccination" asp-action="Step2" class="btn btn-info">
+        Create New Charactor
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z" />
+        </svg>
+        </a>
+
+        </div>*@
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table table-dark table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Surname
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        ContactNumber
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    @*<th>
+                Changes
+                </th>*@
+                    <th>
+                        StreetAddress
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        VaccinationType
+                    </th>
+                    @* <th>
+                Vaccinated?
+                </th>*@
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var details in Model)
+                {
+                    <tr>
+                        <td width="10%">@details.Name</td>
+                        <td width="15%">@details.Surname</td>
+                        <td width="10%">@details.Email</td>
+                        <td width="20%">@details.ContactNumber</td>
+                        <td width="15%">@details.Address</td>
+                        <td width="10%">@details.StreetAddress</td>
+                        <td width="15%">@details.City</td>
+                        <td width="40%">@details.VaccinationType</td>
+
+
+                        <td width="30%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Charactor" asp-action="Update" asp-route-ID="@details.Id" class="btn btn-outline-info mx-1">YES</a>
+                                <a asp-controller="Charactor" asp-action="Delete" asp-route-ID="@details.Id" class="btn btn-danger mx-1 " onclick="return confirm ('Are you sure you want to delete : @details.Name')">
+                                    NO
+
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Patients  yet</p>
+    }
+
+</div>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Calendar";
+    Layout = "~/Views/Shared/_PatientMedicalProcedureLayout.cshtml";
+}
+
+@model IEnumerable<PHCApplication.Models.Reminder>
+
+<div id="calendar"></div>
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: [
+    @foreach (var reminder in Model)
+    {
+        <text>{
+                        title: "@reminder.ReminderType",
+                        start: new Date("@reminder.ReminderDate"),
+                    }, </text>
+    }
+                ]
+        });
+        calendar.render();
+    });
+</script>
+

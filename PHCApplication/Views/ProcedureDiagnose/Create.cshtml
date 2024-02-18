@@ -1,0 +1,62 @@
+﻿@model PHCApplication.Models.Diagnose
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+<h4>Add Diagnose</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DiagnoseDateTime" class="control-label"></label>
+                <input asp-for="DiagnoseDateTime" class="form-control" />
+                <span asp-validation-for="DiagnoseDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Treatment" class="control-label"></label>
+                <input asp-for="Treatment" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="Treatment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalFacility" class="control-label"></label>
+                <select asp-for="MedicalFacility" class="form-control">
+                    <option value="mbca first floor">mbca first floor</option>
+                    <option value="dfgv second floor">dfgv second floor</option>
+                    <option value="apletiser Third floor">apletiser Third floor</option>
+                </select>
+                <span asp-validation-for="MedicalFacility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FollowUpAppointment" class="control-label"></label>
+                <input asp-for="FollowUpAppointment" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="FollowUpAppointment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicationDetails" class="control-label"></label>
+                <input asp-for="MedicationDetails" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="MedicationDetails" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back </a>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

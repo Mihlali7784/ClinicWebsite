@@ -1,0 +1,140 @@
+﻿@model PHCApplication.Models.MedicalProcedureFile
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DocMedicalProcedureLayout.cshtml";
+}
+
+<h4>Edit Medical Record</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalProcedure" class="control-label"></label>
+                <select asp-for="MedicalProcedure" class="form-control">
+                    <option value="Operation">Operation</option>
+                    <option value="Screening">Screening</option>
+                    <option value="Operation">palpation</option>
+                    <option value="Screening">Medical Inspection</option>
+                </select>
+                <span asp-validation-for="MedicalProcedure" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Part" class="control-label"></label>
+                <select asp-for="Part" class="form-control">
+                    <option value="wound treatment">wound treatment</option>
+                    <option value="Hand">reconstructive surgery</option>
+                    <option value="Head">transplant surgery</option>
+                </select>
+                <span asp-validation-for="Part" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Room" class="control-label"></label>
+                <input asp-for="Room" class="form-control" type="number" />
+                <span asp-validation-for="Room" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Desc" class="control-label"></label>
+                <textarea asp-for="Desc" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <select asp-for="status" class="form-control">
+                    <option value="Pending">Pending</option>
+                    <option value="Complete">Complete</option>
+                    <option value="Complete">In Progress</option>
+                </select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" type="number" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" type="number" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Symptoms" class="control-label">Symptoms</label>
+                <select id="Symptoms" name="Symptoms" class="form-control">
+                    <option value="Fever">Back pain</option>
+                    <option value="Cough">fatigue</option>
+                    <option value="Headache">unspecified concern</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentMedications" class="control-label"></label>
+                <input asp-for="CurrentMedications" class="form-control" />
+                <span asp-validation-for="CurrentMedications" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allergies" class="control-label"></label>
+                <input asp-for="Allergies" class="form-control" />
+                <span asp-validation-for="Allergies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Treatment" class="control-label">Treatment</label>
+                <select id="Treatment" name="Treatment" class="form-control">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodType" class="control-label"></label>
+                <select asp-for="BloodType" class="form-control">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                </select>
+                <span asp-validation-for="BloodType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmokingHabit" class="control-label"></label>
+                <select asp-for="SmokingHabit" class="form-control">
+                    <option value="frequently">Frequently</option>
+                    <option value="none">None</option>
+                    <option value="normal">Normal</option>
+                </select>
+                <span asp-validation-for="SmokingHabit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlcoholConsumption" class="control-label"></label>
+                <select asp-for="AlcoholConsumption" class="form-control">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Occasional">Occasional</option>
+                </select>
+                <span asp-validation-for="AlcoholConsumption" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back</a>
+</div>
+
+

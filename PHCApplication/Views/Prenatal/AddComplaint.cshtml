@@ -1,0 +1,83 @@
+﻿@model PHCApplication.Models.Complaint
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "PatientDashboardPrenatalCare";
+    Layout = "~/Views/Shared/_PatientPrenatalCareLayout.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient - Bootstrap Patient Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/SideManu/assets/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="~/SideManu/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/SideManu/assets/plugins/morris/morris.css">
+    <link rel="stylesheet" href="~/SideManu/assets/css/style.css">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Dash/css/style.css">
+
+    <style>
+        .custom-heading {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #000033;
+            /* Add more styles as needed */
+        }
+
+        body {
+            background-color: #000033; /* Change this color to the desired background color */
+            margin: 0; /* Reset margin to remove default spacing */
+            padding: 0; /* Reset padding to remove default spacing */
+            color: white; /* Change this color to the desired font color */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="custom-heading"><strong>Submit Complaint</strong></h1>
+    <p>Please note that once a complaint is submitted, it will take us at least 24 hours to review it.</p>
+
+    <form action="@Url.Action("AddComplaint", "Prenatal")" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- Your form fields go here -->
+        <div class="form-group">
+            <select id="myCombo" name="myCombo" class="form-control" style="width: 300px" required>
+                <option value="option1">Please select title</option>
+                <option value="option2">Mr.</option>
+                <option value="option1">Mrs.</option>
+                <option value="option3">Ms</option>
+                <option value="option4">Dr.</option>
+            </select>
+
+            <label for="Name">Name</label>
+            <input type="text" id="Name" name="Name" class="form-control" style="width: 500px" required />
+            <label for="Email">Email</label>
+            <input type="text" id="Email" name="Email" class="form-control" style="width: 500px" required />
+            <label for="Subject">Subject</label>
+            <input type="text" id="Subject" name="Subject" class="form-control" style="width: 500px" required />
+            <label for="Message">Message</label>
+            <input type="text" id="Message" name="Message" class="form-control" style="width: 500px; height: 300px" required />
+        </div>
+
+        <!-- ... (other form fields) ... -->
+
+        <button asp-action="ThankYou" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
+
